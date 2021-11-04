@@ -1,75 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
-import { useState, useEffect } from 'react';
+import "./App.css";
+import { useState, useEffect } from "react";
+import Login from "./components/login";
 
 function App() {
+  const [currentUser, setCurrentUser] = useState({});
+  const [authChecked, setAuthChecked] = useState(false);
 
-  const URL = 'ws://127.0.0.1:8282';
-
-  const [user, setUser] = useState('John')
-  const [message, setMessage] = useState([])
-  const [messages, setMessages] = useState([])
-  const [ ws, setWs ] = useState(new WebSocket(URL))
-
-  const submitMessage = ( usr, msg ) => {
-    const message = {user: usr, message: msg}
-    ws.send(JSON.stringify(message));
-    setMessages([message, ...messages]);
-  }
-
-  useEffect(()=> {
-    ws.onopen =(e) => {
-      const message = JSON.parse(e.data);setMessages([message, ...messages]);
-    }
-
-    return () => {
-      ws.onclose = () => {
-        console.log('WebSocket Disconnected');
-        setWs(new WebSocket(URL));
-      }
-    }
-  }, [ws.onmessage, ws.onopen, ws.onclose, message])
+  useEffect(() => {
+		console.log("HI")
+    fetch("/me", {
+      credentials: "same-origin",
+			// headers: {
+				"Content-Type" : "application/json",
+			// 	"Accept" : "application/json"
+			// }
+    })
+      // .then((res) => res.json())
+      // .then((data) => {
+      //   debugger
+      // })
+			.then(res=> {
+				if(res.ok){
+					res.json().then(data=>{
+						console.log(data)
+					})
+				}
+			})
+			.catch((err) => console.log(err))
+  }, []);
 
   return (
-    <div className="App">
-	    <div>
-	        <label htmlFor="user">
-	          Name :
-	          <input
-	            type="text"
-	            id="user"
-	            placeholder="User"
-	            value={user}
-	            onChange={e => setUser(e.target.value)}
-	          />
-	        </label>
-
-	        <ul>
-	          {messages.reverse().map((message, index) =>
-	            <li key={index}>
-	              <b>{message.user}</b>: <em>{message.message}</em>
-	            </li>
-	          )}
-	        </ul>
-
-	        <form
-	          action=""
-	          onSubmit={e => {
-	            e.preventDefault();
-	            submitMessage(user, message);
-	            setMessage([]);
-	          }}
-	        >
-	          <input
-	            type="text"
-	            placeholder={'Type a message ...'}
-	            value={message}
-	            onChange={e => setMessage(e.target.value)}
-	          />
-	          <input type="submit" value={'Send'} />
-	        </form>
-	    </div>
-
+    <div>
+      hello?
+      <Login
+        currentUser={currentUser}
+        setCurrentUser={setCurrentUser}
+        authChecked={authChecked}
+        setAuthChecked={setAuthChecked}
+      />
     </div>
   );
 }
