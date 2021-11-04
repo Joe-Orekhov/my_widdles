@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  Rails.application.routes.draw do
-    get "/hello", to: "application#hello_world"
+  resources :chats
+  resources :transactions
+  resources :pets
+  resources :users
+
+    get "/me", to: "users#show"
+    post '/login', to: 'sessions#create'
+    post '/signup', to: 'users#create'
+    delete '/logout', to: 'sessions#destroy'
   end
-end
+
