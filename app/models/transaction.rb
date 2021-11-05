@@ -1,4 +1,5 @@
 class Transaction < ApplicationRecord
-  belongs_to :user
+  has_many :users
   has_many :chats
+  belongs_to :pet
 end

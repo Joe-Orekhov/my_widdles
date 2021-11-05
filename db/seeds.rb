@@ -17,13 +17,13 @@ puts "UPDATING USERS..."
 user1 = User.create(username: 'POOP', password: 'POOP', money: 1000, password_digest: 'k')
 user2 = User.create(username: 'POP', password: 'POP', money: 1000, password_digest: 'k')
 
-puts "USERS cREATED!"
+puts "USERS CREATED!"
 
 puts "UPDATING PETS..."
 
-pet1 = Pet.create(name: 'pet1', image: 'img', love: 10, creator_id: user1.id, owner_id: user2.id, living: true)
-pet2 = Pet.create(name: 'pet2', image: 'img', love: 10, creator_id: user2.id, owner_id: user1.id, living: true)
-pet3 = Pet.create(name: 'pet3', image: 'img', love: 10, creator_id: user2.id, owner_id: user1.id, living: true)
+pet1 = Pet.create(name: 'pet1', image: 'img', love: 10, creator_id: user1.id, owner_id: user2.id, living: true, price: 100)
+pet2 = Pet.create(name: 'pet2', image: 'img', love: 10, creator_id: user2.id, owner_id: user1.id, living: true, price: 200)
+pet3 = Pet.create(name: 'pet3', image: 'img', love: 10, creator_id: user2.id, owner_id: user1.id, living: true, price: 300)
 
 puts "PETS cREATED!"
 

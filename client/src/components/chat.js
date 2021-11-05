@@ -1,5 +1,8 @@
+import { useState, useEffect } from "react";
 
-function Chat() {
+import ChatContainer from "./chatContainer";
+
+export default function Chat() {
 
   const URL = 'ws://127.0.0.1:8080';
 
@@ -29,6 +32,7 @@ function Chat() {
 
   return (
      <div className="App">
+			 <ChatContainer />
 	     <div>
 	         <label htmlFor="user">
 	           Name :
@@ -69,5 +73,3 @@ function Chat() {
      </div> 
   );
 }
-
-export default App;
