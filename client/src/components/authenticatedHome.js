@@ -5,7 +5,7 @@ import Chat from "./chat"
 
 export default function AuthenticatedHome({ setCurrentUser, currentUser }){
 
-
+console.log(currentUser)
 
   return(
     <div>

@@ -18,7 +18,6 @@ class PetsController < ApplicationController
   end
 
   def pets_shop
-    byebug
     if !!User.find_by(id: params[:owner_id])
       pets_shop = Pet.where.not(creator_id: 22)
     else 
@@ -27,7 +26,6 @@ class PetsController < ApplicationController
   end
 
   def create
-
     new_pet = Pet.create(name: params[:name], image: params[:image], love: 10, creator_id: current_user.id, owner_id: 0, living: true, price: params[:price])
     if new_pet.valid?
       render json: new_pet, status: :ok
@@ -36,14 +34,14 @@ class PetsController < ApplicationController
     end
   end
 
-  def update
-    updated_pet = Pet.update(name: params[:name], image: params[:image], love: 10, creator_id: current_user.id, owner_id: 0, living: true, price: params[:price])
-    if !!updated_pet
-      render json: updated_pet, status: :ok
-    else 
-      render json: {error: updated_pet.error.full_messages}
-    end
-  end
+  # def update
+  #   updated_pet = Pet.update(name: params[:name], image: params[:image], love: 10, creator_id: current_user.id, owner_id: 0, living: true, price: params[:price])
+  #   if !!updated_pet
+  #     render json: updated_pet, status: :ok
+  #   else 
+  #     render json: {error: updated_pet.error.full_messages}
+  #   end
+  # end
 
   def pets_purchased
     byebug

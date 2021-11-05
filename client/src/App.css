@@ -56,3 +56,14 @@
   gap: 1px;
   border: solid;
 }
+
+.pet-container{
+  display: inline-grid;
+  grid-template-columns: repeat(4, 4fr);
+  justify-content: space-evenly;
+  gap: 10px;
+}
+
+.pet-card{
+  
+}

@@ -8,7 +8,6 @@ function App() {
   const [authChecked, setAuthChecked] = useState(false);
 
   useEffect(() => {
-		console.log("HI")
     fetch("/me", {
       credentials: "same-origin",
 			// headers: {
@@ -23,7 +22,7 @@ function App() {
 			.then(res=> {
 				if(res.ok){
 					res.json().then(data=>{
-						console.log(data)
+						setCurrentUser(data)
 					})
 				}
 			})
@@ -35,7 +34,12 @@ function App() {
   return (
     <div>
       hello?
-      <NavBar />
+      <NavBar 
+      currentUser={currentUser} 
+      setCurrentUser={setCurrentUser}
+      authChecked={authChecked} 
+      setAuthChecked={setAuthChecked} 
+      />
       {/* <Login
         currentUser={currentUser}
         setCurrentUser={setCurrentUser}

@@ -11,12 +11,13 @@ Rails.application.routes.draw do
     delete '/logout', to: 'sessions#destroy'
     
     # PETS
-    get '/userspets/:owner_id', to: 'pets#users_pets'
+    get '/users_pets/:owner_id', to: 'pets#users_pets'
     get '/pets_shop/:owner_id', to: 'pets#pets_shop'
     post '/create_pet', to: 'pets#create'
-    patch '/update_pet/:id', to: 'pets#update'
+    # patch '/update_pet/:id', to: 'pets#update'
     get '/pet_purchased', to: 'pets#pets_purchased'
     delete '/delete_pet', to: 'pets#destroy'
+
     
     
   end
