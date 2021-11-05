@@ -1,3 +1,3 @@
 class Chat < ApplicationRecord
-  belongs_to :transactions
+  has_many :users
 end
