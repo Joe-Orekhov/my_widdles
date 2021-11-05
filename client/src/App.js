@@ -1,6 +1,7 @@
 import "./App.css";
 import { useState, useEffect } from "react";
 import Login from "./components/login";
+import NavBar from "./components/navBar";
 
 function App() {
   const [currentUser, setCurrentUser] = useState({});
@@ -29,15 +30,18 @@ function App() {
 			.catch((err) => console.log(err))
   }, []);
 
+
+
   return (
     <div>
       hello?
-      <Login
+      <NavBar />
+      {/* <Login
         currentUser={currentUser}
         setCurrentUser={setCurrentUser}
         authChecked={authChecked}
         setAuthChecked={setAuthChecked}
-      />
+      /> */}
     </div>
   );
 }
