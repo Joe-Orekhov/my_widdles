@@ -20,6 +20,7 @@ class PetsController < ApplicationController
   def pets_shop
     if !!User.find_by(id: params[:owner_id])
       pets_shop = Pet.where.not(creator_id: 22)
+      render json: pets_shop, status: :ok
     else 
       render json: { error: "Owner not found"}, status: :not_found
     end

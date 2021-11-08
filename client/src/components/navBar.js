@@ -11,15 +11,24 @@ export default function NavBar({currentUser, setCurrentUser, authChecked, setAut
 
 
   const [ usersPetsArr, setUsersPetsArr ] = useState([])
+  const [ shopArr, setShopArr ] = useState([])
 
   useEffect(()=>{
-    fetch(`/users_pets/${currentUser.id}/`)
+    fetch(`/users_pets/${currentUser.id}`)
     .then(resp=> resp.json())
     .then(data=>{ 
       setUsersPetsArr(data)
       
     })
   },[currentUser])
+
+useEffect(()=>{
+  fetch(`/pets_shop/27`)
+  .then(resp=> resp.json())
+  .then(data=>{setShopArr(data)})
+}, [currentUser])
+
+
 
   return (
     <div>
@@ -38,15 +47,21 @@ export default function NavBar({currentUser, setCurrentUser, authChecked, setAut
                setAuthChecked={setAuthChecked} 
           />
         </Route>
+
         <Route exact path="/home">
           <AuthenticatedHome currentUser={currentUser}/>
         </Route>
+
         <Route exact path="/create">
           <CreatePage />
         </Route>
+
         <Route exact path="/pet_shop">
-          <PetShop />
+          <PetShop 
+          shopArr={shopArr}
+          />
         </Route>
+
         <Route exact path="/pet_page">
           <PetPage currentUser={currentUser} usersPetsArr={usersPetsArr}/>
         </Route>

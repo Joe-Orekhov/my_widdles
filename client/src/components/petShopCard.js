@@ -1,9 +1,9 @@
 
-export default function petShopCard(){
+export default function petShopCard({ pet }){
 
   return (
-    <div>
-      <h1>petShopCard</h1>
+    <div className='pet-shop-card'>
+      <h1>{pet.name}</h1>
     </div>
   )
 }
