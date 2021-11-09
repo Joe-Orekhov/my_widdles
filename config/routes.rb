@@ -18,7 +18,16 @@ Rails.application.routes.draw do
     get '/pet_purchased', to: 'pets#pets_purchased'
     delete '/delete_pet', to: 'pets#destroy'
 
-    
+    # Transaction
+    #get 
+    get "/user_chat", to: 'transactions#user_chat'
+    #post
+    post '/create_chat', to: 'transactions#create_chat'
+
+    # CHAT
+    get "get_messages/:transaction_id", to: 'chats#get_messages'
+    post 'send_message', to: 'chats#send_message'
+
     
   end
 

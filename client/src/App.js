@@ -27,8 +27,12 @@ function App() {
 				}
 			})
 			.catch((err) => console.log(err))
-  }, []);
+    }, []);
+    
+    useEffect(() => {
+      console.log(currentUser);
 
+    },[currentUser])
 
 
   return (

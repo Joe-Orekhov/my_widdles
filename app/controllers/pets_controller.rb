@@ -1,9 +1,7 @@
 class PetsController < ApplicationController
 
   def users_pets
-
     if !!User.find_by(id: params[:owner_id])
-
       owners_pets = Pet.where(owner_id: params[:owner_id])
       
         if !!owners_pets
@@ -19,7 +17,8 @@ class PetsController < ApplicationController
 
   def pets_shop
     if !!User.find_by(id: params[:owner_id])
-      pets_shop = Pet.where.not(creator_id: 22)
+      not_created_pets = Pet.where.not(creator_id: current_user.id)
+      pets_shop = not_created_pets.where(owner_id: 0)
       render json: pets_shop, status: :ok
     else 
       render json: { error: "Owner not found"}, status: :not_found

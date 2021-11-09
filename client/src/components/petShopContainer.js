@@ -1,14 +1,21 @@
 import PetShopCard from "./petShopCard";
 
-export default function PetShopContainer({shopArr}){
+export default function PetShopContainer({shopArr, currentUser }){
 
-  console.log(shopArr)
+
   return (
     <div>
-      {!!shopArr ?
+      {!!shopArr[0] ?
       (
         shopArr.map(pet=>{
-            <PetShopCard pet={pet}/>
+          return (
+          <div className="pet-shop-container">
+              <PetShopCard 
+                pet={pet}
+                currentUser={currentUser}
+              />
+          </div>
+          )
           })
         ):(
           <h1>FINDIG PETS...</h1>

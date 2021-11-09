@@ -64,6 +64,10 @@
   gap: 10px;
 }
 
-.pet-card{
-  
+.user-message{
+  background-color: rgb(185, 120, 120);
+}
+
+.other-message{
+background-color: rgb(173, 173, 212);
 }
