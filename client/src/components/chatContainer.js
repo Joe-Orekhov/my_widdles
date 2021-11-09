@@ -8,45 +8,37 @@ export default function ChatContainer({ currentUser, chatRoom }){
   const [ ws, setWs] = useState(new WebSocket(URL));
   const [ messages, setMessages] = useState([]);
   const [ message, setMessage] = useState([]);
-  const [ receiver_id, setReceiverId ] = useState(0);
+  
 
   
   let userMSG = {
       "transaction_id" : chatRoom.id,
-      "receiver_id" : receiver_id,
-      "sender_id" : currentUser.id,
+      "sender_username" : currentUser.username,
       "message" : message,
     }
     
   function sendMessage(){
-
-    if(chatRoom.buyer_id === currentUser.id){
-      setReceiverId(chatRoom.seller_id)
-    }else{
-      setReceiverId(chatRoom.buyer_id)
-    }
-
       fetch(`send_message`,{
           method: 'POST',
           headers: { 'Content-Type': 'application/json'},
           body: JSON.stringify(userMSG)
         })
         .then(resp => resp.json())
-        .then(data => console.log(data))
+        .then(data => {
+          fetch(`get_messages/${chatRoom.id}`)
+          .then(resp => resp.json())
+          .then(data => setMessages(data))
+        })
       }
-        console.log(messages)
+
 
 useEffect(() => {
   fetch(`get_messages/${chatRoom.id}`)
   .then(resp => resp.json())
   .then(data => setMessages(data))
-},[message])
+},[])
 
-  const submitMessage = (usr, msg) => {
-    const message = { user: usr, message: msg };
-    ws.send(JSON.stringify(message));
-    setMessages([message, ...messages]);
-  }
+// //////////////////////////////////////////////////// WEB SOCKET STUFF
 
   useEffect(() => {
     ws.onopen = () => {
@@ -65,22 +57,25 @@ useEffect(() => {
       }
     }
   }, [ws.onmessage, ws.onopen, ws.onclose, messages]);
+
+  console.log(chatRoom)
+
   return (
 
     
     <div>
-      <h1>ChatContainer</h1>
+      <h2>{`Chating with ${chatRoom.other_username}`}</h2>
         <div className="chat-screen">
          {!!messages[0]?(
            messages.map((msg)=>{
-              if(msg.sender_id === currentUser.id){
-                return ( <div className="user-message"><ChatCard msg={msg} currentUser={currentUser} /></div>)
+              if(msg.sender_username === currentUser.username) {
+                return ( <div className="user-message"><ChatCard msg={msg}/></div>)
               }else{
                 return ( <div className="other-message"><ChatCard msg={msg}/></div>)
               }
            })
          ):(
-            <h1>seeking msgs</h1>
+            <h2>seeking msgs</h2>
          )}
         </div>
 

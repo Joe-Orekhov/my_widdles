@@ -1,11 +1,7 @@
 class ChatsController < ApplicationController
 
   def send_message 
-    chats_transaction = Transaction.find_by(id: params[:transaction_id])
-    buyer = User.find_by(id: chats_transaction.buyer_id)
-    seller = User.find_by(id: chats_transaction.seller_id)
-    
-    created_chat = Chat.create(transaction_id: params[:transaction_id], receiver_id: params[:receiver_id], sender_id: params[:sender_id], message: params[:message], seller_name: seller.username, buyer_name: buyer.username)
+    created_chat = Chat.create(transaction_id: params[:transaction_id], message: params[:message], sender_username: params[:sender_username])
       if !!created_chat
         render json: created_chat, status: :ok
       else 

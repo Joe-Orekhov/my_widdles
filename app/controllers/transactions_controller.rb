@@ -14,7 +14,9 @@ class TransactionsController < ApplicationController
   def create_chat
     found_transaction = Transaction.find_by(pet_id: params[:pet_id], buyer_id: current_user.id)
     if !found_transaction
-      new_transaction = Transaction.create(pet_id: params[:pet_id], buyer_id: current_user.id, seller_id: params[:creator_id], price: params[:price])
+      other_username = User.where(id: params[:creator_id])
+      pet_name = Pet.where(id: params[:pet_id])
+      new_transaction = Transaction.create(pet_id: params[:pet_id], buyer_id: current_user.id, seller_id: params[:creator_id], price: params[:price], other_username: other_username[0].username, pet_name: pet_name[0].name)
         if !!new_transaction
           render json: new_transaction, status: :created
         else
