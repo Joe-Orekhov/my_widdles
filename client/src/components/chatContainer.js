@@ -8,9 +8,10 @@ export default function ChatContainer({ currentUser, chatRoom }){
   const [ ws, setWs] = useState(new WebSocket(URL));
   const [ messages, setMessages] = useState([]);
   const [ message, setMessage] = useState([]);
-  
+  const [ MSGSent, setMSGSent ] = useState('');
+  const [ open, close ] = useState(false)
 
-  
+    
   let userMSG = {
       "transaction_id" : chatRoom.id,
       "sender_username" : currentUser.username,
@@ -18,6 +19,7 @@ export default function ChatContainer({ currentUser, chatRoom }){
     }
     
   function sendMessage(){
+    ws.send(JSON.stringify(message));
       fetch(`send_message`,{
           method: 'POST',
           headers: { 'Content-Type': 'application/json'},
@@ -31,69 +33,73 @@ export default function ChatContainer({ currentUser, chatRoom }){
         })
       }
 
-
 useEffect(() => {
   fetch(`get_messages/${chatRoom.id}`)
   .then(resp => resp.json())
   .then(data => setMessages(data))
-},[])
+},[MSGSent])
+
 
 // //////////////////////////////////////////////////// WEB SOCKET STUFF
 
   useEffect(() => {
     ws.onopen = () => {
       console.log('WebSocket Connected');
+      close(true)
     }
 
     ws.onmessage = (e) => {
       const message = JSON.parse(e.data);
-      setMessages([message, ...messages]);
+      setMSGSent(message)
     }
 
     return () => {
       ws.onclose = () => {
         console.log('WebSocket Disconnected');
         setWs(new WebSocket(URL));
+        close(false)
       }
     }
   }, [ws.onmessage, ws.onopen, ws.onclose, messages]);
 
-  console.log(chatRoom)
-
+  console.log(open)
+  // //////////////////////////////////////////////////////////////RETURN
   return (
 
-    
     <div>
-      <h2>{`Chating with ${chatRoom.other_username}`}</h2>
-        <div className="chat-screen">
-         {!!messages[0]?(
-           messages.map((msg)=>{
-              if(msg.sender_username === currentUser.username) {
-                return ( <div className="user-message"><ChatCard msg={msg}/></div>)
-              }else{
-                return ( <div className="other-message"><ChatCard msg={msg}/></div>)
-              }
-           })
-         ):(
-            <h2>seeking msgs</h2>
-         )}
-        </div>
 
-	        <form
-	          action=""
-	          onSubmit={e => {
-	            e.preventDefault();
-              sendMessage();
-	          }}
-	        >
-	          <input
-	            type="text"
-	            placeholder={'Type a message ...'}
-	            value={message}
-	            onChange={e => setMessage(e.target.value)}
-	          />
-	          <input type="submit" value={'Send'} />
-	        </form>
+        <div>
+          <h2>{`Chating with ${chatRoom.other_username}`}</h2>
+            <div className="chat-screen">
+            {!!messages[0]?(
+              messages.map((msg)=>{
+                  if(msg.sender_username === currentUser.username) {
+                    return ( <div className="user-message"><ChatCard msg={msg}/></div>)
+                  }else{
+                    return ( <div className="other-message"><ChatCard msg={msg}/></div>)
+                  }
+              })
+            ):(
+                <h2>seeking msgs</h2>
+            )}
+            </div>
+
+              <form
+                action=""
+                onSubmit={e => {
+                  e.preventDefault();
+                  sendMessage();
+                }}
+              >
+                <input
+                  type="text"
+                  placeholder={'Type a message ...'}
+                  value={message}
+                  onChange={e => setMessage(e.target.value)}
+                />
+                <input type="submit" value={'Send'} />
+              </form>
+        </div>
     </div>
   )
 }
