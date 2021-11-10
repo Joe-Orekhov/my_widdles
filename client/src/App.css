@@ -71,3 +71,22 @@
 .other-message{
 background-color: rgb(173, 173, 212);
 }
+
+.pet-image-pixel-black{
+  background-color: black;
+  width: 10px;
+  height: 10px;
+}
+
+.pet-image-pixel-white{
+  background-color: white;
+  width: 10px;
+  height: 10px;
+}
+
+.pet-image{
+  display: inline-grid;
+  grid-template-columns: repeat(10, 10fr);
+  justify-content: space-evenly;
+  gap: 1px;
+}
