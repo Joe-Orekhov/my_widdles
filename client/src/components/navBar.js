@@ -40,7 +40,7 @@ export default function NavBar({currentUser, setCurrentUser, authChecked, setAut
       <Link to='/create'><button>Create</button></Link>
       <Link to='/pet_shop'><button>Shop</button></Link>
       <Link to='/pet_page'><button>my_pets</button></Link>
-      <Link to='/messages '> <button>messages</button></Link>
+      <Link to='/messages' > <button>messages</button></Link>
       <Switch>
         <Route exact path="/">
           <UnauthenticatedHome 

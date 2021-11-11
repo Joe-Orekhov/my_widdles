@@ -1,4 +1,6 @@
 import ChatCard from "./chatCard"
+import BuyingPet from "./buyingPet"
+import SellingPet from "./sellingPet"
 
 import React, { useState, useEffect } from "react";
 
@@ -8,16 +10,19 @@ export default function ChatContainer({ currentUser, chatRoom }){
   const [ ws, setWs] = useState(new WebSocket(URL));
   const [ messages, setMessages] = useState([]);
   const [ message, setMessage] = useState([]);
-  
+  const [ MSGSent, setMSGSent ] = useState('');
+  const [ MSGBox, setMSGBox ] = useState(false)
 
-  
+    console.log(chatRoom)
   let userMSG = {
       "transaction_id" : chatRoom.id,
       "sender_username" : currentUser.username,
       "message" : message,
     }
-    
+
+// ////////////////////////////////////////////////////////////////// FETCHES
   function sendMessage(){
+    ws.send(JSON.stringify(message));
       fetch(`send_message`,{
           method: 'POST',
           headers: { 'Content-Type': 'application/json'},
@@ -31,14 +36,14 @@ export default function ChatContainer({ currentUser, chatRoom }){
         })
       }
 
-
 useEffect(() => {
   fetch(`get_messages/${chatRoom.id}`)
   .then(resp => resp.json())
   .then(data => setMessages(data))
-},[])
+},[MSGSent])
 
-// //////////////////////////////////////////////////// WEB SOCKET STUFF
+
+// /////////////////////////////////////////////////////////////// WEB SOCKET STUFF
 
   useEffect(() => {
     ws.onopen = () => {
@@ -47,7 +52,7 @@ useEffect(() => {
 
     ws.onmessage = (e) => {
       const message = JSON.parse(e.data);
-      setMessages([message, ...messages]);
+      setMSGSent(message)
     }
 
     return () => {
@@ -58,42 +63,47 @@ useEffect(() => {
     }
   }, [ws.onmessage, ws.onopen, ws.onclose, messages]);
 
-  console.log(chatRoom)
+  // /////////////////////////////////////////////////////////////////////////RETURN
 
-  return (
+  return ( 
+        <div className="chat-room">
+          <h2>{`Chating with ${chatRoom.other_username}`}</h2>
+            <div className="chat-screen">
+            {!!messages[0]?(
+              messages.map((msg)=>{
+                  if(msg.sender_username === currentUser.username) {
+                    return ( <div className="user-message"><ChatCard msg={msg}/></div>)
+                  }else{
+                    return ( <div className="other-message"><ChatCard msg={msg}/></div>)
+                  }
+              })
+            ):(
+                <h2>seeking msgs</h2>
+            )}
+            </div>
 
-    
-    <div>
-      <h2>{`Chating with ${chatRoom.other_username}`}</h2>
-        <div className="chat-screen">
-         {!!messages[0]?(
-           messages.map((msg)=>{
-              if(msg.sender_username === currentUser.username) {
-                return ( <div className="user-message"><ChatCard msg={msg}/></div>)
-              }else{
-                return ( <div className="other-message"><ChatCard msg={msg}/></div>)
-              }
-           })
-         ):(
-            <h2>seeking msgs</h2>
-         )}
+              <form
+                action=""
+                onSubmit={e => {
+                  e.preventDefault();
+                  sendMessage();
+                }}
+              >
+                <input
+                  type="text"
+                  placeholder={'Type a message ...'}
+                  value={message}
+                  onChange={e => setMessage(e.target.value)}
+                />
+                <input type="submit" value={'Send'} />
+              </form>
+              {(currentUser.username === chatRoom.other_username?(
+                <SellingPet chatRoom={chatRoom} buyer={chatRoom.other_username} buyer_id={chatRoom.buyer_id} />
+
+                ):(
+                <BuyingPet chatRoom={chatRoom} />
+
+              ))}
         </div>
-
-	        <form
-	          action=""
-	          onSubmit={e => {
-	            e.preventDefault();
-              sendMessage();
-	          }}
-	        >
-	          <input
-	            type="text"
-	            placeholder={'Type a message ...'}
-	            value={message}
-	            onChange={e => setMessage(e.target.value)}
-	          />
-	          <input type="submit" value={'Send'} />
-	        </form>
-    </div>
   )
 }
