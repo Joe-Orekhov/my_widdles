@@ -1,4 +1,6 @@
 import ChatCard from "./chatCard"
+import BuyingPet from "./buyingPet"
+import SellingPet from "./sellingPet"
 
 import React, { useState, useEffect } from "react";
 
@@ -9,15 +11,16 @@ export default function ChatContainer({ currentUser, chatRoom }){
   const [ messages, setMessages] = useState([]);
   const [ message, setMessage] = useState([]);
   const [ MSGSent, setMSGSent ] = useState('');
-  const [ open, close ] = useState(false)
+  const [ MSGBox, setMSGBox ] = useState(false)
 
-    
+    console.log(chatRoom)
   let userMSG = {
       "transaction_id" : chatRoom.id,
       "sender_username" : currentUser.username,
       "message" : message,
     }
-    
+
+// ////////////////////////////////////////////////////////////////// FETCHES
   function sendMessage(){
     ws.send(JSON.stringify(message));
       fetch(`send_message`,{
@@ -40,12 +43,11 @@ useEffect(() => {
 },[MSGSent])
 
 
-// //////////////////////////////////////////////////// WEB SOCKET STUFF
+// /////////////////////////////////////////////////////////////// WEB SOCKET STUFF
 
   useEffect(() => {
     ws.onopen = () => {
       console.log('WebSocket Connected');
-      close(true)
     }
 
     ws.onmessage = (e) => {
@@ -57,18 +59,14 @@ useEffect(() => {
       ws.onclose = () => {
         console.log('WebSocket Disconnected');
         setWs(new WebSocket(URL));
-        close(false)
       }
     }
   }, [ws.onmessage, ws.onopen, ws.onclose, messages]);
 
-  console.log(open)
-  // //////////////////////////////////////////////////////////////RETURN
-  return (
+  // /////////////////////////////////////////////////////////////////////////RETURN
 
-    <div>
-
-        <div>
+  return ( 
+        <div className="chat-room">
           <h2>{`Chating with ${chatRoom.other_username}`}</h2>
             <div className="chat-screen">
             {!!messages[0]?(
@@ -99,7 +97,13 @@ useEffect(() => {
                 />
                 <input type="submit" value={'Send'} />
               </form>
+              {(currentUser.username === chatRoom.other_username?(
+                <SellingPet chatRoom={chatRoom} buyer={chatRoom.other_username} buyer_id={chatRoom.buyer_id} />
+
+                ):(
+                <BuyingPet chatRoom={chatRoom} />
+
+              ))}
         </div>
-    </div>
   )
 }
