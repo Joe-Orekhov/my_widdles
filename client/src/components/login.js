@@ -1,6 +1,6 @@
 import UnauthenticatedHome from "./unauthenticatedHome"
 import Authenticated from "./authenticatedHome"
-import { useState, useEffect } from 'react';
+
 
 
 export default function Login({currentUser, setCurrentUser, authChecked, setAuthChecked}){

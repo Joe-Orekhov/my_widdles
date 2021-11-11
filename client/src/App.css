@@ -36,3 +36,38 @@
     transform: rotate(360deg);
   }
 }
+
+.create-pixel{
+  width: 25px;
+  height: 25px;
+  background-color: #ffffff;
+  border: none;
+}
+.create-pixel:hover{
+  background-color: #8d8d8d;
+}
+
+
+#pixel-display{
+  background-color: rgb(102, 102, 102);
+  display: inline-grid;
+  grid-template-columns: repeat(10, 10fr);
+  justify-content: space-evenly;
+  gap: 1px;
+  border: solid;
+}
+
+.pet-container{
+  display: inline-grid;
+  grid-template-columns: repeat(4, 4fr);
+  justify-content: space-evenly;
+  gap: 10px;
+}
+
+.user-message{
+  background-color: rgb(185, 120, 120);
+}
+
+.other-message{
+background-color: rgb(173, 173, 212);
+}

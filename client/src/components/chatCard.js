@@ -1,9 +1,10 @@
+import { useState, useEffect } from "react";
 
-export default function ChatCard(){
+export default function ChatCard({ msg }){
 
   return (
     <div>
-      <h1>ChatCard</h1>
+      <p>{`${msg.sender_username}: ${msg.message}`}</p>
     </div>
   )
 }

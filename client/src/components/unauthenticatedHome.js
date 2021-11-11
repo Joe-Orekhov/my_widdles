@@ -1,6 +1,6 @@
 import {useEffect, useState } from 'react'
 
-export default function UnauthenticatedHome({ setAuthChecked}){
+export default function UnauthenticatedHome({ currentUser, setCurrentUser, authChecked, setAuthChecked }){
 
   const [ passwordInput, setPasswordInput] = useState('')
   const [ usernameInput, setUsernameInput] = useState('')
