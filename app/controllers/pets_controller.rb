@@ -52,26 +52,38 @@ class PetsController < ApplicationController
     end
   end
 
-  # def update_price
-  #   updated_pet = Pet.update(name: params[:name], image: params[:image], love: 10, creator_id: current_user.id, owner_id: 0, living: true, price: params[:price])
-  #   if !!updated_pet
-  #     render json: updated_pet, status: :ok
-  #   else 
-  #     render json: {error: updated_pet.error.full_messages}
-  #   end
-  # end
+  def update_price
+    found_pet = Pet.find_by(id: params[:pet_id])
+      if !!found_pet
+        updated_pet = found_pet.update(price: params[:price])
+          if !!updated_pet
+            byebug
+            render json: updated_pet, status: :ok
+          else 
+            render json: {error: updated_pet.error.full_messages}, status: :unprocessable_entity
+          end
+      else 
+        render json: {error: "Pet not found"}, status: :unprocessable_entity
+      end
+  end
+  
 
-   # def sell_pet
-  #   updated_pet = Pet.update(name: params[:name], image: params[:image], love: 10, creator_id: current_user.id, owner_id: 0, living: true, price: params[:price])
-  #   if !!updated_pet
-  #     render json: updated_pet, status: :ok
-  #   else 
-  #     render json: {error: updated_pet.error.full_messages}
-  #   end
-  # end
+   def sell_pet
+    found_pet = Pet.find_by(id: params[:pet_id])
+    if !!found_pet
+      updated_pet = found_pet.update(owner_id: params[:buyer_id])
+        if !!updated_pet
+          render json: updated_pet, status: :ok
+        else 
+          render json: {error: updated_pet.error.full_messages}, status: :unprocessable_entity
+        end
+    else 
+      render json: {error: "Pet not found"}, status: :unprocessable_entity
+    end
+    
+  end
 
   def pets_purchased
-    byebug
     pet_purchased = Pet.update(owner_id: current_user.id)
     if !!pet_purchased
       render json: pet_purchased, status: :ok
