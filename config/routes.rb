@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     get '/pet_purchased', to: 'pets#pets_purchased'
     # PATCH
     patch '/sell_pet/:pet_id', to: 'pets#sell_pet'
-    patch '/update_price/pet_id', to: 'pets#update_price'
+    patch '/update_price/:pet_id', to: 'pets#update_price'
     # DELETE
     delete '/delete_pet', to: 'pets#destroy'
     #POST
