@@ -16,7 +16,6 @@ export default function PetPage({currentUser, usersPetsArr}){
 
   return (
     <div>
-      <h1>PetPage</h1>
       <PetContainer usersPetsArr={usersPetsArr}/>
     </div>
   )

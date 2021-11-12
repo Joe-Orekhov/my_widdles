@@ -6,6 +6,7 @@ export default function PetShop({ currentUser }){
 
   const [ shopArr, setShopArr ] = useState([])
 
+  console.log(shopArr)
   useEffect(()=>{
     fetch(`/pets_shop/${currentUser.id}`)
     .then(resp=> resp.json())

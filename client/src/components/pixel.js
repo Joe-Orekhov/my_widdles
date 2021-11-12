@@ -11,9 +11,8 @@ export default function Pixel({pix, blackBoxs}){
 
     if(blacked === true){
       setBlacked(false)
-      let cc = blackBoxs.indexOf(e.target.value)
-      console.log(cc)
-      blackBoxs.splice(cc, 1)
+      let boxValue = blackBoxs.indexOf(e.target.value)
+      blackBoxs.splice(boxValue, 1)
     }else{
       setBlacked(true)
       blackBoxs.push(e.target.value)

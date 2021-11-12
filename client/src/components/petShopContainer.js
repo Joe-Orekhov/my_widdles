@@ -2,6 +2,7 @@ import PetShopCard from "./petShopCard";
 
 export default function PetShopContainer({shopArr, currentUser }){
 
+  console.log(shopArr)
 
   return (
     <div>

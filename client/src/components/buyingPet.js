@@ -1,11 +1,12 @@
-import { useHistory } from 'react-router-dom'
+import React from 'react';
+
 
 export default function BuyingPet({chatRoom}){
-
+  
   const sellInfo = {
     "buyer_id" : chatRoom.buyer_id
   }
-
+  
   function buyPet(e){
     e.preventDefault()
     fetch(`/sell_pet/${chatRoom.pet_id}`,{
@@ -14,10 +15,11 @@ export default function BuyingPet({chatRoom}){
       body: JSON.stringify(sellInfo)
     })
     .then(resp => resp.json())
-    .then(data => console.log(data))
-    // useHistory.push('/pet_page')
+    .then(data =>{
+       console.log(data)
+    })
   }
-  console.log(chatRoom.pet_name)
+
   return(
     <div>
          <button onClick={(e)=>buyPet(e)}>{`Buy "${chatRoom.pet_name}" for ${chatRoom.price} `}</button>
