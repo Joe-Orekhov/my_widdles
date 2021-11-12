@@ -1,4 +1,5 @@
 import {useEffect, useState } from 'react'
+import NewUser from './newUser'
 
 export default function UnauthenticatedHome({ currentUser, setCurrentUser, authChecked, setAuthChecked }){
 
@@ -11,7 +12,7 @@ export default function UnauthenticatedHome({ currentUser, setCurrentUser, authC
       "password": passwordInput
   
   }
-console.log(userInput)
+
  function sendRequest(e, userInput){
    e.preventDefault()
    fetch('/login',{
@@ -26,6 +27,7 @@ console.log(userInput)
 
 
 
+
   return(
     <div>
       <form onSubmit={(e) => sendRequest(e, userInput)}>
@@ -33,6 +35,7 @@ console.log(userInput)
         <input type='text' name='password' onChange={(e)=> setPasswordInput(e.target.value)}></input>
         <button type='submit'>Login</button>
       </form>
+      <NewUser />
     </div>
   )
 }

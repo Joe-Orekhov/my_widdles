@@ -4,21 +4,27 @@ export default function SellingPet({ chatRoom, buyer}){
 
   const [ price, setPrice ] = useState(0)
 
+  const priceSend = {
+    'price' : parseInt(price)
+  }
 
+  console.log(priceSend)
   function updatePrice(e){
     e.preventDefault()
-    console.log(price)
-    // fetch(``,{
-    //   method: 'POST',
-    //   headers: { "Content_Type" : "application/json"},
-    //   body: JSON.stringify(price)
-    // })
+    fetch(`/update_price/${chatRoom.pet_id}`,{
+      method : 'PATCH',
+      headers:{ 
+        "Content-Type" : "application/json",
+        "Accept" : "application/json"
+      },
+      body: JSON.stringify(priceSend)
+    })
   }
  
 
   return(
     <div>
-      <form onSubmit={(e)=>{ updatePrice(e)}}>
+      <form onSubmit={updatePrice}>
         <input 
           type="range" 
           min="0" max="2000" 
