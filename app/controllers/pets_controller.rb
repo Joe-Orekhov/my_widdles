@@ -56,8 +56,8 @@ class PetsController < ApplicationController
     found_pet = Pet.find_by(id: params[:pet_id])
       if !!found_pet
         updated_pet = found_pet.update(price: params[:price])
+        byebug
           if !!updated_pet
-            byebug
             render json: updated_pet, status: :ok
           else 
             render json: {error: updated_pet.error.full_messages}, status: :unprocessable_entity
@@ -71,8 +71,19 @@ class PetsController < ApplicationController
    def sell_pet
     found_pet = Pet.find_by(id: params[:pet_id])
     if !!found_pet
-      updated_pet = found_pet.update(owner_id: params[:buyer_id])
+      # FINIDING TRANSACTIONS AND CHATS
+      transaction = Transaction.where(pet_id: params[:pet_id])
+      transactions_chats = Chat.where(transaction_id: transaction[0].id)
+      # BUYER AND SELLER LOGIC
+      buyer = User.find_by(id: transaction[0].buyer_id)
+      seller = User.find_by(id: transaction[0].seller_id)
+
+      updated_buyer = buyer.update(money: buyer.money - found_pet.price)
+      updated_seller = seller.update(money: buyer.money + found_pet.price)
+      updated_pet = found_pet.update(owner_id: transaction[0].buyer_id)
         if !!updated_pet
+          transaction.delete_all
+          transactions_chats.delete_all
           render json: updated_pet, status: :ok
         else 
           render json: {error: updated_pet.error.full_messages}, status: :unprocessable_entity
@@ -80,7 +91,6 @@ class PetsController < ApplicationController
     else 
       render json: {error: "Pet not found"}, status: :unprocessable_entity
     end
-    
   end
 
   def pets_purchased
@@ -93,8 +103,7 @@ class PetsController < ApplicationController
   end
 
   private 
-
   def pets_params_create
-    params.permit(:name, :image, :love, :creator_id, :owner_id, :living, :price)
+    params.permit(:name, :image, :love, :creator_id, :owner_id, :living, :price, :pet_id, :pet)
   end
 end
