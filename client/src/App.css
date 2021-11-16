@@ -168,8 +168,9 @@ body{
   padding: 20px;
   border-radius: 20px;
   left: 50%;
-  top: 550px;
+  top: 520px;
   transform: translate(-50%, -50%);
+  box-shadow: 10px 10px 15px #7ad8e2;
 }
 #pet-form-home{
   display: inline-grid;
@@ -183,15 +184,24 @@ body{
   border-radius: 12px;
   font-family: 'Dekko';
   font-size: 40px;
+  box-shadow: 10px 5px 5px #f5a42b;
+  border-style: solid;
+  border-color: #d88e1e;
+}
+.pet-form-name:hover{
+  height: 51px;
+  border-radius: 13px;
+  box-shadow: 10px 5px 5px #d68a17;
 }
 #pixel-display{
   background-color: rgb(102, 102, 102);
   display: inline-grid;
   grid-template-columns: repeat(10, 10fr);
   justify-content: space-evenly;
-  gap: 1px;
+  gap: 0;
   border: solid;
-  border-color: rgb(102, 102, 102);
+  border-color: rgb(0, 0, 0);
+  box-shadow: 10px 5px 5px #f5a42b;
 }
 
 #pet-form-price[type=range]{
@@ -200,10 +210,17 @@ body{
 
 #pet-form-price[type=range]::-webkit-slider-runnable-track {
   height: 20px;
-  background-image: linear-gradient(to right, #21d389 5%, #28E986 40%, #06cc37 80%);
+  background-image: linear-gradient(to right, #62e6af 5%, #28E986 40%, #06cc37 80%);
   border: solid;
   border-color: #28E958;
-  border-radius: 100px;
+  box-shadow: 10px 5px 5px #f5a42b;
+  border-radius: 5px;
+  padding: 0;
+}
+#pet-form-price[type=range]::-webkit-slider-runnable-track:hover {
+  box-shadow: 10px 5px 5px #e09625;
+  cursor: pointer;
+ ;
 }
 #pet-form-price[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
@@ -215,13 +232,10 @@ body{
   background: black;
   margin-top: -4px;
 }
-#pet-price-create{
-  font-family: 'Dekko';
-  font-size: 40px;
-  font-weight: 900;
-  text-align: center;
-  padding: 2px;
-  margin: 0px;
+#pet-form-price[type=range]::-webkit-slider-thumb:hover {
+  box-shadow: 0px 0px 10px #7effb4;
+  width: 7px;
+  cursor: pointer;
 }
 #sell-pet-button{
   height: 50px;
@@ -229,29 +243,29 @@ body{
   background-image: linear-gradient(to right, #21d389 5%, #28E986 40%, #06cc37 80%);
   font-family: 'Dekko';
   font-size: 40px;
+  box-shadow: 10px 5px 5px #f5a42b;
 }
 #sell-pet-button:hover{
   font-size: 41px;
   background-image: linear-gradient(to right, #21d389 10%, #28E986 60%, #06cc37 90%);
+  box-shadow: 10px 7px 7px #f5a42b;
+  cursor: pointer;
 }
 
-.pet-image-pixel-black{
-  background-color: black;
-  width: 10px;
-  height: 10px;
-}
 
 .create-pixel{
   width: 50px;
   height: 50px;
+  border-style: solid;
+  border-color: black;
 }
-
-.pet-image-pixel-white{
-  background-color: white;
-  width: 10px;
-  height: 10px;
+.create-pixel:hover{
+  width: 50px;
+  height: 50px;
+  border-color: #8c00ff;
+  border-style: dotted;
+  cursor: pointer;
 }
-
 /* ////////////////////////////////////////--HOME PET DISPLAY CARDS--//////////////////////////////////////////// */
 .pet-container{
   position: absolute;
@@ -260,7 +274,7 @@ body{
   justify-content: space-evenly;
   gap: 10px;
   left: 50%;
-  top: 600px;
+  top: 400px;
   transform: translate(-50%, -50%);
 }
 .pet-card{
@@ -271,19 +285,36 @@ body{
   padding-left: 20px;
   padding-right: 20px;
 }
-.hearts{
-  width: 10px;
-  height: auto;
+.pet-name{
+  font-family: 'Dekko';
+  font-size: 40px;
+  padding: 0px;
+  margin: 0px;
 }
-
 .pet-image-{
   display: inline-grid;
   grid-template-columns: repeat(10, 10fr);
   justify-content: space-evenly;
   gap: 1px;
 }
-
-
+.pet-image-pixel-black{
+  background-color: black;
+  width: 10px;
+  height: 10px;
+} 
+.pet-image-pixel-white{
+  background-color: white;
+  width: 10px;
+  height: 10px;
+}
+.pets-heart{
+  width: 10px;
+  height: auto;
+}
+.pet-heart-home{
+  border-color: #00DCF5;
+  border-width: 2px;
+}
 .pet-image-1{
   display: inline-grid;
   grid-template-columns: repeat(10, 10fr);

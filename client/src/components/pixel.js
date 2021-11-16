@@ -8,7 +8,6 @@ export default function Pixel({pix, blackBoxs}){
   
 
   function handleClick(e){
-
     if(blacked === true){
       setBlacked(false)
       let boxValue = blackBoxs.indexOf(e.target.value)
@@ -34,6 +33,8 @@ export default function Pixel({pix, blackBoxs}){
       name={blacked}
       style={{backgroundColor: color}}
       onClick={(e)=> handleClick(e)}
+      // onMouseOver={()=> setColor('gray')}
+      // onMouseOut={() => setColor('white')}
       ></button>
     )
 

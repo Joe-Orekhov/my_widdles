@@ -57,7 +57,7 @@ export default function PetPixleDrawinge(){
   return (
     <div className="new-pet-form">
         <form id="pet-form-home" onSubmit={(e)=> handleSubmit(e)}>
-          <input type="text" className='pet-form-name' name="name" placeHolder="Pet Name..." onChange={(e)=> setName(e.target.value)} ></input>
+          <input type="text" className='pet-form-name' name="name" placeHolder="Pet Name..." maxlength="10" onChange={(e)=> setName(e.target.value)} ></input>
             <div id="pixel-display">
               { boxOBJ.map((pix)=>{
                 return(
@@ -66,8 +66,7 @@ export default function PetPixleDrawinge(){
               })}
             </div>
             <input type='range' min="0" max="1000" id='pet-form-price' className="form-price" name="price" onChange={(e)=> setPrice(e.target.value)} ></input>
-            <p id="pet-price-create">${price}</p>
-          <button type='submit' id="sell-pet-button">💲SELL💲</button>
+          <button type='submit' id="sell-pet-button">{`Sell for $${price}`}</button>
         </form>
       </div>
     
