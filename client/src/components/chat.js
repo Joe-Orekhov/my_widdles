@@ -12,9 +12,6 @@ useEffect(()=>{
 	.then(data => setTransactions(data))
 },[])
 
-
-
-
   	return (
 			<div>
 				{!!transactions[0]?(

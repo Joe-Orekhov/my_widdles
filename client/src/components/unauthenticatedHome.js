@@ -1,8 +1,9 @@
 import {useEffect, useState } from 'react'
 import NewUser from './newUser'
+import { useHistory, withRouter } from 'react-router-dom'
 
-export default function UnauthenticatedHome({ setAuthChecked }){
-
+function UnauthenticatedHome({ setAuthChecked }){
+  let his = useHistory()
   const [ passwordInput, setPasswordInput] = useState('')
   const [ usernameInput, setUsernameInput] = useState('')
   const [ showSignup, setShowSignup] = useState(false)
@@ -23,6 +24,7 @@ export default function UnauthenticatedHome({ setAuthChecked }){
      body: JSON.stringify(userInput)
    })
    .then(resp => setAuthChecked(resp.ok))
+   his.push('/pet_page')
  }
 
   return(
@@ -48,3 +50,5 @@ export default function UnauthenticatedHome({ setAuthChecked }){
     </div>
   )
 }
+
+export default withRouter(UnauthenticatedHome)

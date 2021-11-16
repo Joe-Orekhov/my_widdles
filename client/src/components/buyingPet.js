@@ -1,8 +1,8 @@
 import React from 'react';
-
+import { useHistory } from 'react-router-dom'
 
 export default function BuyingPet({ chatRoom, setReneder, rerender }){
-  
+  // let his = useHistory()
   const sellInfo = {
     "buyer_id" : chatRoom.buyer_id
   }

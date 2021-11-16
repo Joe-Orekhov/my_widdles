@@ -270,11 +270,11 @@ body{
 .pet-container{
   position: absolute;
   display: inline-grid;
-  grid-template-columns: repeat(4, 4fr);
+  grid-template-columns: repeat(3, 3fr);
   justify-content: space-evenly;
   gap: 10px;
   left: 50%;
-  top: 400px;
+  top: 600px;
   transform: translate(-50%, -50%);
 }
 .pet-card{

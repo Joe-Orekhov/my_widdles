@@ -1,13 +1,23 @@
 import PetImage from "./petImage";
-import { useHistory } from 'react-router-dom'
+// import { useHistory } from 'react-router-dom'
+import { useState } from 'react'
 
 export default function PetCard({ petInfo, ranNum }){
-  const heartArr = [...Array(parseInt(petInfo.love))].map((i) => <img className="pets-heart" src="https://cdn.pixabay.com/photo/2017/09/23/16/33/pixel-heart-2779422_1280.png" key={i} ></img>)
+  
 
- 
-  console.log(heartArr)
-  console.log(parseInt(petInfo.love))
+  const [ love, setLove ] = useState(petInfo.love)
+  const heartArr = [...Array(love)].map((i) => <img className="pets-heart" src="https://cdn.pixabay.com/photo/2017/09/23/16/33/pixel-heart-2779422_1280.png" key={i} ></img>)
+
   const image_array = petInfo.image.split('')
+
+  function sendLove(){
+    console.log("hello")
+    fetch(`/pets_love/${petInfo.id}`)
+    .then(resp => resp.json())
+    .then(data => console.log(data))
+  }
+
+
   return (
     <div className="pet-card">
       <h1 className="pet-name" >{petInfo.name}</h1>
@@ -21,7 +31,7 @@ export default function PetCard({ petInfo, ranNum }){
       <div className="pet-heart-home">
         {heartArr}
       </div>
-      <button>LOVE</button>
+      <button onClick={()=>sendLove()}>LOVE</button>
     </div>
   )
 }
