@@ -1,53 +1,189 @@
-.App {
-  text-align: center;
+
+
+body{
+  background: linear-gradient(#C2F9FF 50%, #e2fcff 100%) fixed;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+
+/* ////////////////////////////////////////--LOGIN--//////////////////////////////////////// */
+.login-div{
+  position: absolute;
+  padding: 20px;
+  background-color: #FFB647 ;
+  border-style: solid;
+  border-color: #3390ad;
+  border-radius: 30px;
+  width: 33%;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1px;
+  box-shadow: 10px 10px 10px #91e6f0;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.login-div:hover{
+  background-color: #ffb648 ;
+}
+#login-title{
+  font-family: 'Dekko';font-size: 30px;
+  font-weight: bolder;
+  margin: auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.login-form{
+  display: inline-grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2px;
+}
+.login-form-input{
+  height: 33px;
+  border-radius: 10px;
+  background-image: linear-gradient(to right, #d6d6d6 5%, #ffffff 60%, #ffffff 80%);
+  transition: 0.9s;
+  background-size: 200% auto;
+  font-family: 'Dekko';font-size: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.login-form-input:hover{
+  border-radius: 12px;
+  background-position: right center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.login-form-input-button{
+  height: 33px;
+  border-radius: 10px;
+  background-image: linear-gradient(to right, #2196F3 5%, #21c2f3 60%, #00DCF5 80%);
+  transition: 0.9s;
+  background-size: 200% auto;
+  font-family: 'Dekko';font-size: 20px;
+}
+.login-form-input-button:hover{
+  border-radius: 12px;
+  background-position: right center;
+  font-family: 'Dekko';font-size: 22px;
+  
+}
+.login-signup{
+  display: inline-grid;
+  grid-template-columns: repeat(2, 2fr);
+  gap: 2px;
+}
+#sign-page-btn{
+  border-radius: 8px;
+  background-image: linear-gradient(to right, #28CB86 5%, #28E986 40%, #28E958 80%);
+  transition: 0.9s;
+  background-size: 200% auto;
+  font-family: 'Dekko';font-size: 20px;
+}
+#sign-page-btn:hover{
+  background-position: right center;
+  font-family: 'Dekko';font-size: 22px;
 }
 
-.create-pixel{
-  width: 25px;
-  height: 25px;
-  background-color: #ffffff;
+/* ////////////////////////////////////////--sign up--//////////////////////////////////////// */
+
+#log-page-btn{
+  border-radius: 8px;
+  background-image: linear-gradient(to right, #2196F3 5%, #21c2f3 60%, #00DCF5 80%);
+  transition: 0.9s;
+  background-size: 200% auto;
+  font-family: 'Dekko';font-size: 20px;
+}
+#log-page-btn:hover{
+  background-position: right center;
+  font-family: 'Dekko';font-size: 21px;
+  text-shadow: 0 1px 3 #2196F3;
+}
+
+.sign-form-input-button{
+  height: 33px;
+  border-radius: 10px;
+  background-image: linear-gradient(to right, #28CB86 5%, #28E986 40%, #28E958 80%);
+  transition: 0.9s;
+  background-size: 200% auto;
+  font-family: 'Dekko';font-size: 20px;
+}
+.sign-form-input-button:hover{
+  border-radius: 12px;
+  background-position: right center;
+  font-family: 'Dekko';font-size: 22px;
+  text-shadow: 0 2px 0 #28CB86;
+}
+/* ////////////////////////////////////////--NAV BAR--//////////////////////////////////////////// */
+.nav-bar{
+  background: linear-gradient( #DE419A 5%, #f12197 40%, #DE419A 80%);
+  position: absolute;
+  top: 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 3fr);
+  gap: 10px;
+  height: 120px;
+}
+
+.nav-bar-btn-home{
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, 5fr);
+  gap: 10px;
+  width: 33%;
+}
+
+.nav-bar-button{
+  background-color: cadetblue;
+  background-size: 200% auto;
+  height: 100px;
+  width: 100px;
+  font-family: 'Dekko';
+  font-size: 40px;
   border: none;
-}
-.create-pixel:hover{
-  background-color: #8d8d8d;
+  color: transparent;  
+  text-shadow: 0 0 0 black;
 }
 
+.nav-bar-button:hover{
+  text-shadow: 0 0 0 white;
+}
+/* .nav-bar-button.exit{
+  position: absolute;
+  right: 10px;
+  top: 90px;
+  width: 150px;
+  height: 80px;
+  left: 400px;
+} */
 
+/* ////////////////////////////////////////--PET CREATE--//////////////////////////////////////////// */
+.new-pet-form{
+  position: absolute;
+  top: 150px;
+  display: inline-grid;
+  grid-template-columns: repeat(1, 1fr);
+  justify-content: space-evenly;
+  gap: 10px;
+  background-color: #FFB647;
+  padding: 20px;
+  border-radius: 20px;
+  left: 50%;
+  top: 550px;
+  transform: translate(-50%, -50%);
+}
+#pet-form-home{
+  display: inline-grid;
+  grid-template-columns: repeat(1, 1fr);
+  justify-content: space-evenly;
+  width: 100%;
+  gap: 10px;
+}
+.pet-form-name{
+  height: 50px;
+  border-radius: 12px;
+  font-family: 'Dekko';
+  font-size: 40px;
+}
 #pixel-display{
   background-color: rgb(102, 102, 102);
   display: inline-grid;
@@ -55,21 +191,48 @@
   justify-content: space-evenly;
   gap: 1px;
   border: solid;
+  border-color: rgb(102, 102, 102);
 }
 
-.pet-container{
-  display: inline-grid;
-  grid-template-columns: repeat(4, 4fr);
-  justify-content: space-evenly;
-  gap: 10px;
+#pet-form-price[type=range]{
+  -webkit-appearance: none;
 }
 
-.user-message{
-  background-color: rgb(185, 120, 120);
+#pet-form-price[type=range]::-webkit-slider-runnable-track {
+  height: 20px;
+  background-image: linear-gradient(to right, #21d389 5%, #28E986 40%, #06cc37 80%);
+  border: solid;
+  border-color: #28E958;
+  border-radius: 100px;
 }
-
-.other-message{
-background-color: rgb(173, 173, 212);
+#pet-form-price[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: none;
+  height: 40px;
+  width: 5px;
+  position: relative;
+  top: -9px;
+  background: black;
+  margin-top: -4px;
+}
+#pet-price-create{
+  font-family: 'Dekko';
+  font-size: 40px;
+  font-weight: 900;
+  text-align: center;
+  padding: 2px;
+  margin: 0px;
+}
+#sell-pet-button{
+  height: 50px;
+  border-radius: 12px;
+  background-image: linear-gradient(to right, #21d389 5%, #28E986 40%, #06cc37 80%);
+  font-family: 'Dekko';
+  font-size: 40px;
+}
+#sell-pet-button:hover{
+  font-size: 41px;
+  background-image: linear-gradient(to right, #21d389 10%, #28E986 60%, #06cc37 90%);
 }
 
 .pet-image-pixel-black{
@@ -78,34 +241,76 @@ background-color: rgb(173, 173, 212);
   height: 10px;
 }
 
+.create-pixel{
+  width: 50px;
+  height: 50px;
+}
+
 .pet-image-pixel-white{
   background-color: white;
   width: 10px;
   height: 10px;
 }
 
-.pet-image{
+/* ////////////////////////////////////////--HOME PET DISPLAY CARDS--//////////////////////////////////////////// */
+.pet-container{
+  position: absolute;
+  display: inline-grid;
+  grid-template-columns: repeat(4, 4fr);
+  justify-content: space-evenly;
+  gap: 10px;
+  left: 50%;
+  top: 600px;
+  transform: translate(-50%, -50%);
+}
+.pet-card{
+  background-color: white;
+  display: inline-grid;
+  grid-template-columns: repeat(1, 1fr);
+  justify-content: space-evenly;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.hearts{
+  width: 10px;
+  height: auto;
+}
+
+.pet-image-{
   display: inline-grid;
   grid-template-columns: repeat(10, 10fr);
   justify-content: space-evenly;
   gap: 1px;
-  /* animation: shake 2s cubic-bezier(.36,.07,.19,.97) both; */
 }
 
-/* @keyframes shake {
-  10%, 90% {
-    transform: translate3d(-1px, 0, 0);
-  }
-  
-  20%, 80% {
-    transform: translate3d(2px, 0, 0);
-  }
 
-  30%, 50%, 70% {
-    transform: translate3d(-4px, 0, 0);
-  }
-
-  40%, 60% {
-    transform: translate3d(4px, 0, 0);
-  }
-} */
+.pet-image-1{
+  display: inline-grid;
+  grid-template-columns: repeat(10, 10fr);
+  justify-content: space-evenly;
+  gap: 1px;
+}
+.pet-image-2{
+  display: inline-grid;
+  grid-template-columns: repeat(10, 10fr);
+  justify-content: space-evenly;
+  gap: 1px;
+}
+.pet-image-3{
+  display: inline-grid;
+  grid-template-columns: repeat(10, 10fr);
+  justify-content: space-evenly;
+  gap: 1px;
+}
+.pet-image-4{
+  display: inline-grid;
+  grid-template-columns: repeat(10, 10fr);
+  justify-content: space-evenly;
+  gap: 1px;
+}
+.pet-image-5{
+  display: inline-grid;
+  grid-template-columns: repeat(10, 10fr);
+  justify-content: space-evenly;
+  gap: 1px;
+}

@@ -6,7 +6,7 @@ import React, { useState, useEffect } from "react";
 
 const URL = 'ws://127.0.0.1:8080';
 
-export default function ChatContainer({ currentUser, chatRoom }){
+export default function ChatContainer({ currentUser, chatRoom, setReneder, rerender }){
   const [ ws, setWs] = useState(new WebSocket(URL));
   const [ messages, setMessages] = useState([]);
   const [ message, setMessage] = useState([]);
@@ -101,7 +101,7 @@ useEffect(() => {
                 <SellingPet chatRoom={chatRoom} buyer={chatRoom.other_username} buyer_id={chatRoom.buyer_id} />
 
                 ):(
-                <BuyingPet chatRoom={chatRoom} />
+                <BuyingPet chatRoom={chatRoom} setReneder={setReneder} rerender={rerender} />
 
               ))}
         </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-export default function BuyingPet({chatRoom}){
+export default function BuyingPet({ chatRoom, setReneder, rerender }){
   
   const sellInfo = {
     "buyer_id" : chatRoom.buyer_id
@@ -18,6 +18,11 @@ export default function BuyingPet({chatRoom}){
     .then(data =>{
        console.log(data)
     })
+    if(rerender){
+      setReneder(false)
+    }else{
+      setReneder(true)
+    }
   }
 
   return(

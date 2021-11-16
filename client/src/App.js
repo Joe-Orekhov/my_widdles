@@ -16,11 +16,12 @@ function App() {
 				if(res.ok){
 					res.json().then(data=>{
 						setCurrentUser(data)
+            setAuthChecked(true)
 					})
 				}
 			})
 			.catch((err) => console.log(err))
-    }, [authChecked]);
+    }, []);
 
   function logOut(){
     fetch("/logout", {
