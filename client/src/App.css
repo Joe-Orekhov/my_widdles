@@ -4,8 +4,68 @@ body{
   background: linear-gradient(#C2F9FF 50%, #e2fcff 100%) fixed;
 }
 
+/* ////////////////////////////////////////--HEADER--//////////////////////////////////////// */
+.my-widdles-logo{
+  font-size: 100px;
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.monster-1{
+  width: 100px;
+  animation: rotateAnimation 3s linear infinite;
+}
+.monster-2{
+  width: 100px;
+  transform: rotateY(0deg);
+  animation: backAndForth 4s linear infinite;
+}
+.monster-3{
+  width: 100px;
+  animation: wiggle 3s linear infinite;
+}
+.hearts2-home{
+  position: absolute;
+  right: 10px;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+}
+.hearts1-home{
+  position: absolute;
+  left: 10px;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+}
+.heart-1{
+  width: 100px;
+  transform: rotateY(0deg);
+  animation: rotateAnimation 4s linear infinite;
+}
+.heart-2{
+  width: 100px;
+  transform: rotateY(0deg);
+  animation: rotateAnimation 4s linear infinite;
+}
 
 
+@keyframes rotateAnimation {
+	from {transform: rotateY(0deg);}
+	to {transform: rotateY(360deg);}
+}
+@keyframes backAndForth {
+	0% {transform: rotateY(0deg);}
+	25% {transform: rotateY(30deg);}
+  50% {transform: rotateY(-30deg);}
+  100% {transform: rotateY(0deg);}
+}
+@keyframes wiggle {
+  0% { transform: rotate(0deg); }
+ 80% { transform: rotate(0deg); }
+ 85% { transform: rotate(5deg); }
+ 95% { transform: rotate(-5deg); }
+100% { transform: rotate(0deg); }
+}
 /* ////////////////////////////////////////--LOGIN--//////////////////////////////////////// */
 .login-div{
   position: absolute;
@@ -114,47 +174,106 @@ body{
 }
 /* ////////////////////////////////////////--NAV BAR--//////////////////////////////////////////// */
 .nav-bar{
-  background: linear-gradient( #DE419A 5%, #f12197 40%, #DE419A 80%);
-  position: absolute;
+  background: linear-gradient( #ffb413 5%, #fcbd37 40%, #ffb413 80%);
+  position: fixed;
   top: 0;
   width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 3fr);
   gap: 10px;
   height: 120px;
+  z-index: 4;
+  border-bottom: solid #a57100;
 }
 
 .nav-bar-btn-home{
   position: relative;
   display: grid;
-  grid-template-columns: repeat(5, 5fr);
+  grid-template-columns: repeat(4, 4fr);
   gap: 10px;
   width: 33%;
 }
-
 .nav-bar-button{
-  background-color: cadetblue;
-  background-size: 200% auto;
-  height: 100px;
-  width: 100px;
+  position: relative;
+  background-color: transparent;
   font-family: 'Dekko';
+  color: white;
   font-size: 40px;
-  border: none;
-  color: transparent;  
-  text-shadow: 0 0 0 black;
+  border: none; 
+  top: 68px;
+  text-shadow: 0 0 2px rgb(0, 0, 0);
 }
-
 .nav-bar-button:hover{
-  text-shadow: 0 0 0 white;
+  text-shadow: 0 0 5px rgb(0, 0, 0);
 }
-/* .nav-bar-button.exit{
+@keyframes rotateHeart {
+	0% {transform: rotateY(0deg);}
+  20% {ransform: rotateY(0deg);}
+  40% {
+    transform: rotateY(90deg);
+  }
+  60% {
+    transform: rotateY(180deg);
+  
+  }
+  80% {
+    transform: rotateY(240deg);
+
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+.heart-logo{
+  position: absolute;
+  left: 20px;
+  top: -15px;
+  width: 150px;
+  animation: rotateHeart 6s linear infinite;
+}
+.my-widdles-logo-nav{
+  position: absolute;
+  left: 10px;
+  font-size: 30px;
+  top: 30px;
+  font-weight: bold;
+  font-family: 'Dekko';
+  background-color: white;
+  border-radius: 20px;
+  padding-left: 5px;
+  padding-right: 5px;
+  width: 160px;
+  text-align: center;
+}
+.nav-bar-button.chat{
+  color: #DE419A;
+}
+.nav-bar-button.chat:hover{
+  text-shadow: 0px 0px 5px #000000;
+}
+.nav-bar-button.exit{
   position: absolute;
   right: 10px;
-  top: 90px;
-  width: 150px;
-  height: 80px;
-  left: 400px;
-} */
+  top: 70px;
+} 
+.nav-bar-username{
+  position: absolute;
+  right: 5px;
+  top: -30px;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: 'Dekko';
+  text-shadow: 0 0 2px rgb(255, 255, 255);
+}
+.nav-bar-user-money{
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: 'Dekko';
+  text-shadow: 0 0 2px rgb(255, 255, 255);
+}
 
 /* ////////////////////////////////////////--PET CREATE--//////////////////////////////////////////// */
 .new-pet-form{
@@ -189,7 +308,6 @@ body{
   border-color: #d88e1e;
 }
 .pet-form-name:hover{
-  height: 51px;
   border-radius: 13px;
   box-shadow: 10px 5px 5px #d68a17;
 }
@@ -251,8 +369,6 @@ body{
   box-shadow: 10px 7px 7px #f5a42b;
   cursor: pointer;
 }
-
-
 .create-pixel{
   width: 50px;
   height: 50px;
@@ -266,36 +382,83 @@ body{
   border-style: dotted;
   cursor: pointer;
 }
-/* ////////////////////////////////////////--HOME PET DISPLAY CARDS--//////////////////////////////////////////// */
-.pet-container{
-  position: absolute;
-  display: inline-grid;
-  grid-template-columns: repeat(3, 3fr);
-  justify-content: space-evenly;
-  gap: 10px;
-  left: 50%;
-  top: 600px;
-  transform: translate(-50%, -50%);
-}
-.pet-card{
-  background-color: white;
-  display: inline-grid;
-  grid-template-columns: repeat(1, 1fr);
-  justify-content: space-evenly;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-.pet-name{
-  font-family: 'Dekko';
-  font-size: 40px;
-  padding: 0px;
-  margin: 0px;
-}
-.pet-image-{
+/* ////////////////////////////////////////--SHOP PET DISPLAY CARDS--//////////////////////////////////////////// */
+.pet-image{
   display: inline-grid;
   grid-template-columns: repeat(10, 10fr);
   justify-content: space-evenly;
   gap: 1px;
+  background: white;
+  padding: 10px;
+}
+.pet-shop-card-home{
+  position: absolute;
+  display: inline-grid;
+  grid-template-columns: repeat(5, 5fr);
+  justify-content: space-evenly;
+  gap: 15px;
+  left: 50%;
+  top: 200px;
+  transform: translate(-50%);
+  z-index: 3;
+}
+.pet-shop{
+  width: 100%;
+}
+.pet-shop-card{
+  background-color: #FFB647;
+  padding: 15px;
+  box-shadow: 10px 10px 10px #7ad8e2;
+  border-radius: 5px;
+  border-style: solid;
+  border-color: #FFB546;
+}
+.pet-shop-card:hover{
+  box-shadow: 10px 10px 10px #69cad4;
+  background-color: #FFB646;
+ }
+ .loading-stuff-title{
+  position: absolute;
+  left: 43%;
+  top: 280px;
+  transform: rotateY(0deg);
+  animation: loading 4s linear infinite;
+  /* transform: translate(-50%, -50%); */
+ }
+ @keyframes loading {
+	0% {transform: rotateY(0deg);}
+	25% {transform: rotateY(30deg);}
+  50% {transform: rotateY(-30deg);}
+  100% {transform: rotateY(0deg);}
+}
+/* ////////////////////////////////////////--HOME PET DISPLAY CARDS--//////////////////////////////////////////// */
+
+.pet-container{
+  position: absolute;
+  display: inline-grid;
+  grid-template-columns: repeat(5, 5fr);
+  justify-content: space-evenly;
+  gap: 15px;
+  left: 50%;
+  top: 200px;
+  transform: translate(-50%);
+  z-index: 3;
+}
+.pet-card{
+  background-color: #FFB647;
+  padding: 15px;
+  box-shadow: 10px 10px 10px #7ad8e2;
+  border-radius: 5px;
+  border-style: solid;
+  border-color: #FFB546;
+  width: 100px;
+}
+.pet-card:hover{
+  box-shadow: 10px 10px 10px #69cad4;
+  background-color: #FFB646;
+}
+.pet-name{
+  font-family: 'Dekko';
 }
 .pet-image-pixel-black{
   background-color: black;
@@ -308,7 +471,7 @@ body{
   height: 10px;
 }
 .pets-heart{
-  width: 10px;
+  width: 20px;
   height: auto;
 }
 .pet-heart-home{
@@ -321,7 +484,7 @@ body{
   justify-content: space-evenly;
   gap: 1px;
 }
-.pet-image-2{
+/* .pet-image-2{
   display: inline-grid;
   grid-template-columns: repeat(10, 10fr);
   justify-content: space-evenly;
@@ -344,4 +507,120 @@ body{
   grid-template-columns: repeat(10, 10fr);
   justify-content: space-evenly;
   gap: 1px;
+} */
+/* ////////////////////////////////////////--MESSAGES--//////////////////////////////////////////// */
+.all-chats{
+  position: absolute;
+  top: 400px;
+  display: inline-grid;
+  grid-template-columns: repeat(3, 3fr);
+  justify-content: space-evenly;
+  gap: 10px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.chat-room{
+  background-color: #FFB647;
+  padding: 0px 20px;
+  padding-bottom: 10px;
+  width: 300px;
+  box-shadow: 10px 10px 10px rgb(133, 197, 197);
+}
+.chat-screen{
+  overflow-y: scroll;
+  background: linear-gradient(180deg, rgb(209, 209, 209) 0%,  white 10%);
+  display: inline-grid;
+  grid-template-columns: repeat(1, 1fr);
+  justify-content: space-evenly;
+  width: 100%;
+  height: 300px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.message-card{
+  border-bottom: solid #000000;
+  font-family: 'Dekko';
+}
+.user-text-name{
+  font-size: 20px;
+  padding: 0px;
+  height: 10px;
+  margin: 0px, 0px;
+}
+.user-text-message{
+  font-size: 20px;
+  padding: 0px;
+}
+.form-text-input-home{
+  position: relative;
+  width: 100%;
+  background-color: #ffffff;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.form-text-input{
+  height: 40px;
+  padding: 0px;
+  width: 85%;
+  border-style: none;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.send-message-button{
+  position: relative;
+  border-radius: 100px;
+  padding: 0px;
+  border-style: none;
+  width: 42px;
+  height: 42px;
+  left: 2px;
+  background-image: radial-gradient( #2affa6 10%, #0ace69 50%, #018522 90%);
+}
+.send-message-button:hover{
+  background-image: radial-gradient( #2affa6 20%, #0ace69 60%, #018522 80%);
+}
+.chatroom-price{
+  padding: 0px;
+  text-align: center;
+}
+.sell-buy-pet{
+  width: 100%;
+  border-radius: 8px;
+  background-image: linear-gradient(to left, #28CB86 5%, #28E986 40%, #28E958 80%);
+  background-size: 200% auto;
+  transition: 0.9s;
+  height: 40px;
+  padding: 0px;
+}
+.sell-but-pet:hover{
+    background-position: left center;
+    font-family: 'Dekko';font-size: 30px;
+  }
+
+.no-messages-loading{
+  font-size: 100px;
+  content: inline;
+}
+.monster-loading{
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  top: 350px;
+}
+
+#mon-home-chat-load{
+  position: absolute;
+  top: 400px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f56e00;
+  width: 600px;
+  height: 400px;
+  text-align: center;
+  border-radius: 30px;
+}
+#no-chat-div{
+  display: inline-grid;
+  grid-template-columns: repeat(2, 2fr);
+  background-color: rgb(255, 137, 137);
 }

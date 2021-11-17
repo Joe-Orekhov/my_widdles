@@ -3,8 +3,9 @@ import { useState, useEffect } from "react";
 export default function ChatCard({ msg }){
 
   return (
-    <div>
-      <p>{`${msg.sender_username}: ${msg.message}`}</p>
+    <div className="message-card">
+      <p className="user-text-name" >{`${msg.sender_username}:`}</p>
+      <p className="user-text-message" >{`-${msg.message}`}</p>
     </div>
   )
 }

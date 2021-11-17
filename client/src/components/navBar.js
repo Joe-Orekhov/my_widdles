@@ -27,18 +27,22 @@ export default function NavBar({currentUser, setCurrentUser, authChecked, setAut
   return (
     <div>
       <div className="nav-bar">
-        <div>
-          <p>You currently have ${currentUser.money}!!</p>
-          <p>{currentUser.username}</p>
+        <div className="logo-nav">
+          <img className="heart-logo" src="https://cdn.pixabay.com/photo/2017/09/23/16/33/pixel-heart-2779422_1280.png"></img>
+          <p className="my-widdles-logo-nav">{'My Widdles'}</p>
         </div>
         <div className="nav-bar-btn-home">
-          <Link to='/pet_page'><button className='nav-bar-button pet'>🏠</button></Link>
-          <Link to='/create'><button className='nav-bar-button create'>🖍️</button></Link>
-          <Link to='/pet_shop'><button className='nav-bar-button shop'>🛍️</button></Link>
+          <Link to='/pet_page'><button className='nav-bar-button pet'>Home</button></Link>
+          <Link to='/create'><button className='nav-bar-button create'>Create</button></Link>
+          <Link to='/pet_shop'><button className='nav-bar-button shop'>Shop</button></Link>
           <Link to='/messages'><button className='nav-bar-button chat'>&#128172;</button></Link>
-          <button type="button" onClick={()=>logOut()} className='nav-bar-button exit'>EXIT</button>
         </div>
 
+        <div className="nav-bar-user-section">
+          <p className="nav-bar-user-money">You currently have ${currentUser.money}!!</p>
+          <p className="nav-bar-username">Account: {currentUser.username}</p>
+          <button type="button" onClick={()=>logOut()} className='nav-bar-button exit'>EXIT</button>
+        </div>
       </div>
       <Switch>
         <Route exact path="/">

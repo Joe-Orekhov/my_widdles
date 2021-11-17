@@ -15,18 +15,27 @@ useEffect(()=>{
   	return (
 			<div>
 				{!!transactions[0]?(
-					transactions.map(chatRoom =>{
-						return(
-							<ChatContainer 
-							chatRoom={chatRoom}
-							currentUser={currentUser}
-							setReneder={setReneder}
-							rerender={rerender}
-							/>
-						)
-					})
+					<div className="all-chats">{
+						transactions.map(chatRoom =>{
+							return(
+								<ChatContainer 
+								chatRoom={chatRoom}
+								currentUser={currentUser}
+								setReneder={setReneder}
+								rerender={rerender}
+								/>
+							)
+						})
+					}</div>
 				):(
-					<h1>NO CHATS</h1>
+					<div id="mon-home-chat-load">
+						<h1 className="no-messages-loading">No Messages</h1>
+						<div className="monster-loading">
+							<img className="monster-3 loading" src="https://freepngimg.com/thumb/space_invaders/32279-3-space-invaders-clipart.png"></img>
+							<img className="monster-2 loading" src="https://freepngimg.com/thumb/space_invaders/32279-3-space-invaders-clipart.png"></img>
+							<img className="monster-3 loading" src="https://freepngimg.com/thumb/space_invaders/32279-3-space-invaders-clipart.png"></img>
+						</div>
+					</div>
 				)}
 			</div>
 		)

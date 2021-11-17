@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
-
+import { useHistory, withRouter } from 'react-router-dom'
 import PetImage from "./petImage"
 
-export default function petShopCard({ pet, currentUser }){
+function PetShopCard({ pet, currentUser }){
+  const history = useHistory()
 
   let petsInfo = {
     "creator_id" : pet.creator_id,
@@ -12,7 +13,6 @@ export default function petShopCard({ pet, currentUser }){
   console.log(pet.price)
 
   function handleSubmit(){
-    
 
     fetch('/create_chat', {
       method: "POST",
@@ -24,6 +24,7 @@ export default function petShopCard({ pet, currentUser }){
     })
     .then(resp => resp.json())
     .then(data=> console.log(data))
+    history.push("/messages")
   }
 console.log(pet.image.split(''))
 
@@ -43,3 +44,4 @@ console.log(pet.image.split(''))
     </div>
   )
 }
+export default withRouter(PetShopCard)

@@ -11,7 +11,7 @@ export default function ChatContainer({ currentUser, chatRoom, setReneder, reren
   const [ messages, setMessages] = useState([]);
   const [ message, setMessage] = useState([]);
   const [ MSGSent, setMSGSent ] = useState('');
-  const [ MSGBox, setMSGBox ] = useState(false)
+  const [ price, setPrice ] = useState(false)
 
     console.log(chatRoom)
   let userMSG = {
@@ -21,7 +21,7 @@ export default function ChatContainer({ currentUser, chatRoom, setReneder, reren
     }
 
 // ////////////////////////////////////////////////////////////////// FETCHES
-  function sendMessage(){
+  function sendMessage(e){
     ws.send(JSON.stringify(message));
       fetch(`send_message`,{
           method: 'POST',
@@ -34,7 +34,7 @@ export default function ChatContainer({ currentUser, chatRoom, setReneder, reren
           .then(resp => resp.json())
           .then(data => setMessages(data))
         })
-      }
+}
 
 useEffect(() => {
   fetch(`get_messages/${chatRoom.id}`)
@@ -64,10 +64,13 @@ useEffect(() => {
   }, [ws.onmessage, ws.onopen, ws.onclose, messages]);
 
   // /////////////////////////////////////////////////////////////////////////RETURN
-
   return ( 
         <div className="chat-room">
-          <h2>{`Chating with ${chatRoom.other_username}`}</h2>
+          {(currentUser.username === chatRoom.other_username?(
+                <h2>{`Selling ${chatRoom.pet_name}`}</h2>
+                ):(
+                <h2>{`Buying ${chatRoom.pet_name}`}</h2>
+              ))}
             <div className="chat-screen">
             {!!messages[0]?(
               messages.map((msg)=>{
@@ -78,28 +81,33 @@ useEffect(() => {
                   }
               })
             ):(
-                <h2>seeking msgs</h2>
+              <div id="no-chat-div">
+                <h2 className="no-message-loading">NO MESSAGES</h2>
+                <img className="monster-3" src="https://freepngimg.com/thumb/space_invaders/32279-3-space-invaders-clipart.png"></img>
+              </div>
             )}
             </div>
 
               <form
+                className="form-text-input-home"
                 action=""
                 onSubmit={e => {
                   e.preventDefault();
-                  sendMessage();
+                  sendMessage(e);
                 }}
               >
                 <input
+                  className="form-text-input"
+                  name='textMSG'
                   type="text"
                   placeholder={'Type a message ...'}
                   value={message}
                   onChange={e => setMessage(e.target.value)}
                 />
-                <input type="submit" value={'Send'} />
+                <input className="send-message-button" type="submit" value={'Send'} />
               </form>
               {(currentUser.username === chatRoom.other_username?(
                 <SellingPet chatRoom={chatRoom} buyer={chatRoom.other_username} buyer_id={chatRoom.buyer_id} />
-
                 ):(
                 <BuyingPet chatRoom={chatRoom} setReneder={setReneder} rerender={rerender} />
 

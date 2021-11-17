@@ -6,18 +6,29 @@ export default function PetShopContainer({shopArr, currentUser }){
     <div>
       {!!shopArr[0] ?
       (
-        shopArr.map(pet=>{
-          return (
-          <div className="pet-shop-container">
-              <PetShopCard 
-                pet={pet}
-                currentUser={currentUser}
-              />
-          </div>
+        <div className="pet-shop-card-home">
+          {shopArr.map(pet=>{
+            return (
+                <div className="pet-shop-container">
+                    <PetShopCard 
+                      pet={pet}
+                      currentUser={currentUser}
+                    />
+                </div>
           )
-          })
+        })}
+        </div>
         ):(
-          <h1>FINDIG PETS...</h1>
+          <div>
+              <h1 className="loading-stuff-title">Looking for Pets...</h1>
+            <div className="pet-shop-card-home">
+              <img className="heart-2" src="https://cdn.pixabay.com/photo/2017/09/23/16/33/pixel-heart-2779422_1280.png"></img>
+              <img className="heart-2" src="https://cdn.pixabay.com/photo/2017/09/23/16/33/pixel-heart-2779422_1280.png"></img>
+              <img className="heart-2" src="https://cdn.pixabay.com/photo/2017/09/23/16/33/pixel-heart-2779422_1280.png"></img>
+              <img className="heart-2" src="https://cdn.pixabay.com/photo/2017/09/23/16/33/pixel-heart-2779422_1280.png"></img>
+              <img className="heart-2" src="https://cdn.pixabay.com/photo/2017/09/23/16/33/pixel-heart-2779422_1280.png"></img>
+            </div>
+          </div>
         )
       }
     </div>

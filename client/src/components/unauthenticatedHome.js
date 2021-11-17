@@ -29,6 +29,30 @@ function UnauthenticatedHome({ setAuthChecked }){
 
   return(
     <div>
+      <div className="header-home">
+        <h1 className="my-widdles-logo">My Widdles</h1>
+        {/* <p>Virtual Pets</p> */}        
+        <div className="hearts2-home">
+        <img className="monster-1" src="https://www.pngkit.com/png/full/196-1969052_space-invaders-extreme-black-and-white-pixel.png"></img>
+          <img className="heart-2" src="https://cdn.pixabay.com/photo/2017/09/23/16/33/pixel-heart-2779422_1280.png"></img>
+          <img className="monster-2" src="https://freepngimg.com/thumb/space_invaders/32279-3-space-invaders-clipart.png"></img>
+          <img className="heart-2" src="https://cdn.pixabay.com/photo/2017/09/23/16/33/pixel-heart-2779422_1280.png"></img>
+          <img className="monster-3" src="https://dbdzm869oupei.cloudfront.net/img/sticker/preview/9227.png"></img>
+          <img className="heart-2" src="https://cdn.pixabay.com/photo/2017/09/23/16/33/pixel-heart-2779422_1280.png"></img>
+          <img className="monster-1" src="https://www.pngkit.com/png/full/196-1969052_space-invaders-extreme-black-and-white-pixel.png"></img>
+          <img className="heart-2" src="https://cdn.pixabay.com/photo/2017/09/23/16/33/pixel-heart-2779422_1280.png"></img>
+        </div>
+        <div className="hearts1-home">
+          <img className="monster-1" src="https://freepngimg.com/thumb/space_invaders/32279-3-space-invaders-clipart.png"></img>
+          <img className="heart-1" src="https://cdn.pixabay.com/photo/2017/09/23/16/33/pixel-heart-2779422_1280.png"></img>
+          <img className="monster-2" src="https://dbdzm869oupei.cloudfront.net/img/sticker/preview/9227.png"></img>
+          <img className="heart-1" src="https://cdn.pixabay.com/photo/2017/09/23/16/33/pixel-heart-2779422_1280.png"></img>
+          <img className="monster-3" src="https://www.pngkit.com/png/full/196-1969052_space-invaders-extreme-black-and-white-pixel.png"></img>
+          <img className="heart-1" src="https://cdn.pixabay.com/photo/2017/09/23/16/33/pixel-heart-2779422_1280.png"></img>
+          <img className="monster-1" src="https://freepngimg.com/thumb/space_invaders/32279-3-space-invaders-clipart.png"></img>
+          <img className="heart-1" src="https://cdn.pixabay.com/photo/2017/09/23/16/33/pixel-heart-2779422_1280.png"></img>
+        </div>
+      </div>
       {showSignup?(
         <div>
           <NewUser setShowSignup={setShowSignup} />
