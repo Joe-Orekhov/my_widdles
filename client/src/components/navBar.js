@@ -12,7 +12,7 @@ export default function NavBar({currentUser, setCurrentUser, authChecked, setAut
   const [ rerender, setReneder] = useState(false)
   const [ usersPetsArr, setUsersPetsArr ] = useState([])
 
-  const [ home, setHome ] = useState("nav-bar-button")
+  const [ home, setHome ] = useState("nav-bar-button-current-tab")
   const [ create, setCreate ] = useState("nav-bar-button")
   const [ shop, setShop ] = useState("nav-bar-button")
   const [ chat, setChat ] = useState("nav-bar-button")

@@ -1,11 +1,12 @@
 import Pixel from "./pixel";
 import { useState } from "react";
+import { withRouter, useHistory } from "react-router-dom";
 
-export default function PetPixleDrawing(){
-
-  const [ name, setName ] = useState('')
-  const [ price, setPrice] = useState(50)
-  const [ blackBoxs, setBlackBoxs] =useState([])
+function PetPixleDrawing(){
+  let history = useHistory();
+  const [ name, setName ] = useState('');
+  const [ price, setPrice] = useState(50);
+  const [ blackBoxs, setBlackBoxs] =useState([]);
 
   let boxOBJ = [
     "1A", "1B", "1C", "1D", "1E", "1F", "1G", "1H", "1I", "1J",
@@ -51,6 +52,7 @@ export default function PetPixleDrawing(){
       "10A", "10B", "10C", "10D", "10E", "10F", "10G", "10H", "10I", "10J"
     ];
     e.target.reset()
+    history.push("/pet_page")
   }
 
 
@@ -72,3 +74,5 @@ export default function PetPixleDrawing(){
     
   )
 }
+
+export default withRouter(PetPixleDrawing)
