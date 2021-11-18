@@ -2,7 +2,7 @@ import ChatContainer from "./chatContainer";
 
 import React, { useState, useEffect } from "react";
 
-const Chat =({ currentUser }) => {
+const Chat =({ currentUser, setReneder, rerender }) => {
 
 	const [ transactions, setTransactions ] = useState([])
 
@@ -12,9 +12,6 @@ useEffect(()=>{
 	.then(data => setTransactions(data))
 },[])
 
-
-
-
   	return (
 			<div>
 				{!!transactions[0]?(
@@ -23,6 +20,8 @@ useEffect(()=>{
 							<ChatContainer 
 							chatRoom={chatRoom}
 							currentUser={currentUser}
+							setReneder={setReneder}
+							rerender={rerender}
 							/>
 						)
 					})
