@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
-
+import { useHistory, withRouter } from 'react-router-dom'
 import PetImage from "./petImage"
 
-export default function petShopCard({ pet, currentUser }){
+function PetShopCard({ pet, currentUser }){
+  const history = useHistory()
 
   let petsInfo = {
     "creator_id" : pet.creator_id,
@@ -12,7 +13,6 @@ export default function petShopCard({ pet, currentUser }){
   console.log(pet.price)
 
   function handleSubmit(){
-    
 
     fetch('/create_chat', {
       method: "POST",
@@ -24,13 +24,14 @@ export default function petShopCard({ pet, currentUser }){
     })
     .then(resp => resp.json())
     .then(data=> console.log(data))
+    history.push("/messages")
   }
 console.log(pet.image.split(''))
 
   return (
     <div className='pet-shop-card'>
-      <h1>{pet.name}</h1>
-       <p>{`$ ${pet.price}`}</p>
+      <h1 className="card-shop-name" >{pet.name}</h1>
+       <p className="price-shop-card" >{`$ ${pet.price}`}</p>
         <div className='pet-image'>
           {
             pet.image.split('').map(pix =>{
@@ -39,7 +40,8 @@ console.log(pet.image.split(''))
               )})
           }
         </div> <br/>
-      <button onClick={()=> handleSubmit()}>Contact creator</button>
+      <button className="love-pet-button" onClick={()=> handleSubmit()}>Contact creator</button>
     </div>
   )
 }
+export default withRouter(PetShopCard)

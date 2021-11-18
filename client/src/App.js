@@ -21,7 +21,7 @@ function App() {
 				}
 			})
 			.catch((err) => console.log(err))
-    }, []);
+    }, [authChecked]);
 
   function logOut(){
     fetch("/logout", {

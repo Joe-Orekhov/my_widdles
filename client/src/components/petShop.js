@@ -13,7 +13,7 @@ export default function PetShop({ currentUser }){
   }, [currentUser])
   
   return (
-    <div>
+    <div className="pet-shop" >
       <h1>PetShop</h1>
       <PetShopContainer 
         shopArr={shopArr}

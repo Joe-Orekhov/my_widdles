@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
+import { useHistory, withRouter } from "react-router-dom";
 
-export default function SellingPet({ chatRoom, buyer}){
-
+function SellingPet({ chatRoom, buyer}){
+  let his = useHistory()
   const [ price, setPrice ] = useState(0)
 
   const priceSend = {
     'price' : parseInt(price)
   }
 
-  console.log(priceSend)
   function updatePrice(e){
     e.preventDefault()
     fetch(`/update_price/${chatRoom.pet_id}`,{
@@ -31,8 +31,10 @@ export default function SellingPet({ chatRoom, buyer}){
           name="price" 
           onChange={(e)=>{setPrice(e.target.value);}}
           />
-        <button type="submit">{`Set price to ${price}`}</button>
+        <button className="sell-buy-pet" type="submit">{`Set price to $${price}`}</button>
       </form>
     </div>
   )
 }
+
+export default withRouter(SellingPet)

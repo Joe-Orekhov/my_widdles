@@ -1,8 +1,8 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom'
+import { useHistory, withRouter } from "react-router-dom";
 
-export default function BuyingPet({ chatRoom, setReneder, rerender }){
-  // let his = useHistory()
+function BuyingPet({ chatRoom, setReneder, rerender }){
+  const history = useHistory()
   const sellInfo = {
     "buyer_id" : chatRoom.buyer_id
   }
@@ -23,11 +23,14 @@ export default function BuyingPet({ chatRoom, setReneder, rerender }){
     }else{
       setReneder(true)
     }
+    history.push("/pet_page")
   }
 
   return(
     <div>
-         <button onClick={(e)=>buyPet(e)}>{`Buy "${chatRoom.pet_name}" for ${chatRoom.price} `}</button>
+      <h3 className='chatroom-price' >{`$${chatRoom.price}`}</h3>
+         <button className="sell-buy-pet" onClick={(e)=>buyPet(e)}>{`Buy ${chatRoom.pet_name} `}</button>
     </div>
   )
 }
+export default withRouter(BuyingPet)

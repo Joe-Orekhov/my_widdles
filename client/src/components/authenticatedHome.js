@@ -10,6 +10,7 @@ console.log(currentUser)
 
   return(
     <div>
+      
       <NavBar 
       currentUser={currentUser} 
       setCurrentUser={setCurrentUser}
