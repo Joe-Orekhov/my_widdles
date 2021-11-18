@@ -22,6 +22,7 @@ export default function ChatContainer({ currentUser, chatRoom, setReneder, reren
 
 // ////////////////////////////////////////////////////////////////// FETCHES
   function sendMessage(e){
+    e.preventDefault();
     ws.send(JSON.stringify(message));
       fetch(`send_message`,{
           method: 'POST',
@@ -30,11 +31,13 @@ export default function ChatContainer({ currentUser, chatRoom, setReneder, reren
         })
         .then(resp => resp.json())
         .then(data => {
+          setMessage(' ')
           fetch(`get_messages/${chatRoom.id}`)
           .then(resp => resp.json())
           .then(data => setMessages(data))
         })
-}
+
+      }
 
 useEffect(() => {
   fetch(`get_messages/${chatRoom.id}`)
@@ -90,9 +93,7 @@ useEffect(() => {
 
               <form
                 className="form-text-input-home"
-                action=""
                 onSubmit={e => {
-                  e.preventDefault();
                   sendMessage(e);
                 }}
               >

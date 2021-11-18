@@ -1,29 +1,67 @@
 
 
-body{
-  background: linear-gradient(#C2F9FF 50%, #e2fcff 100%) fixed;
-}
 
+h1{
+  color: white;
+}
+h2{
+  color: white;
+}
 /* ////////////////////////////////////////--HEADER--//////////////////////////////////////// */
 .my-widdles-logo{
   font-size: 100px;
   position: absolute;
+  color: white;
   top: 60px;
   left: 50%;
   transform: translate(-50%, -50%);
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 600px;
+  text-align: center;
+  border-radius: 15px;
+  text-shadow: 
+  0px 0px 3px #d3fcff,
+  0px 0px 5px #c0fffa,
+  0px 0px 10px #00DCF5,
+  0px 0px 15px #00DCF5;
+}
+#my-widdles-phrase{
+  color:#ffffff;
+  font-size: 20px;
+  position: absolute;
+  top: 180px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Dekko';
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+  border-radius: 15px;
+  text-shadow: 
+  0px 0px 10px #000000,
+  0px 0px 10px #000000,
+  0px 0px 15px #00DCF5,
+  0px 0px 20px #00DCF5;
 }
 .monster-1{
-  width: 100px;
+  width: 110px;
   animation: rotateAnimation 3s linear infinite;
+  -webkit-filter: drop-shadow(0px 0px 5px rgb(222, 89, 255));
+  filter:         drop-shadow(0px 0px 5px rgb(222, 89, 255)); 
 }
 .monster-2{
-  width: 100px;
+  width: 110px;
   transform: rotateY(0deg);
   animation: backAndForth 4s linear infinite;
+  -webkit-filter: drop-shadow(0px 0px 5px rgb(222, 89, 255));
+  filter:         drop-shadow(0px 0px 5px rgb(222, 89, 255)); 
 }
 .monster-3{
-  width: 100px;
+  width: 110px;
   animation: wiggle 3s linear infinite;
+  -webkit-filter: drop-shadow(0px 0px 5px rgb(222, 89, 255));
+  filter:         drop-shadow(0px 0px 5px rgb(222, 89, 255)); 
 }
 .hearts2-home{
   position: absolute;
@@ -38,12 +76,12 @@ body{
   grid-template-columns: repeat(1, 1fr);
 }
 .heart-1{
-  width: 100px;
+  width: 150px;
   transform: rotateY(0deg);
   animation: rotateAnimation 4s linear infinite;
 }
 .heart-2{
-  width: 100px;
+  width: 150px;
   transform: rotateY(0deg);
   animation: rotateAnimation 4s linear infinite;
 }
@@ -70,27 +108,27 @@ body{
 .login-div{
   position: absolute;
   padding: 20px;
-  background-color: #FFB647 ;
   border-style: solid;
   border-color: #3390ad;
-  border-radius: 30px;
+  background-color:black;
   width: 33%;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   gap: 1px;
-  box-shadow: 10px 10px 10px #91e6f0;
+  box-shadow: 0px 0px 10px #91e6f0;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
 }
 
 .login-div:hover{
-  background-color: #ffb648 ;
+  background-color: #0f002b ;
 }
 #login-title{
   font-family: 'Dekko';font-size: 30px;
   font-weight: bolder;
   margin: auto;
+  color: white;
 }
 
 .login-form{
@@ -142,7 +180,16 @@ body{
   background-position: right center;
   font-family: 'Dekko';font-size: 22px;
 }
-
+.login-background{
+  background-image: url("https://c4.wallpaperflare.com/wallpaper/526/190/355/night-the-city-building-pixels-wallpaper-preview.jpg");
+  background-position: bottom 10px right 100px;
+}
+p{
+  color:white;
+  text-shadow: 
+  0px 0px 20px #00DCF5,
+  0px 0px 10px #00DCF5;
+}
 /* ////////////////////////////////////////--sign up--//////////////////////////////////////// */
 
 #log-page-btn{
@@ -174,7 +221,8 @@ body{
 }
 /* ////////////////////////////////////////--NAV BAR--//////////////////////////////////////////// */
 .nav-bar{
-  background: linear-gradient( #ffb413 5%, #fcbd37 40%, #ffb413 80%);
+  background-image: url('https://wallpapercave.com/wp/wp3620058.jpg');
+  background-position: bottom 10px right 100px;
   position: fixed;
   top: 0;
   width: 100%;
@@ -182,16 +230,16 @@ body{
   grid-template-columns: repeat(3, 3fr);
   gap: 10px;
   height: 120px;
-  z-index: 4;
-  border-bottom: solid #a57100;
+  z-index: 5;
+  border-bottom: solid #000000;
 }
-
 .nav-bar-btn-home{
   position: relative;
   display: grid;
   grid-template-columns: repeat(4, 4fr);
   gap: 10px;
-  width: 33%;
+  z-index: 4;
+  /* width: 33%; */
 }
 .nav-bar-button{
   position: relative;
@@ -202,10 +250,30 @@ body{
   border: none; 
   top: 68px;
   text-shadow: 0 0 2px rgb(0, 0, 0);
+  z-index: 4;
 }
 .nav-bar-button:hover{
-  text-shadow: 0 0 5px rgb(0, 0, 0);
+  text-shadow: 
+  0 0 1px rgb(119, 255, 131),
+  0 0 3px rgb(119, 255, 131),
+  0 0 5px rgb(119, 255, 131);
+  top: 65px;
 }
+.nav-bar-button-current-tab{
+  position: relative;
+  background-color: transparent;
+  font-family: 'Dekko';
+  color: rgb(255, 255, 255);
+  text-shadow: 0 0 2px rgb(0, 0, 0);
+  font-size: 40px;
+  border: none; 
+  top: 62px;
+  background-color: rgb(51, 0, 51);
+  box-shadow: 0px 0px 8px rgb(148, 0, 148);
+  border-radius: 12px;
+  z-index: 4;
+}
+
 @keyframes rotateHeart {
 	0% {transform: rotateY(0deg);}
   20% {ransform: rotateY(0deg);}
@@ -230,6 +298,7 @@ body{
   top: -15px;
   width: 150px;
   animation: rotateHeart 6s linear infinite;
+  z-index: 4;
 }
 .my-widdles-logo-nav{
   position: absolute;
@@ -238,23 +307,35 @@ body{
   top: 30px;
   font-weight: bold;
   font-family: 'Dekko';
-  background-color: white;
+  color: rgb(0, 0, 0);
+  text-shadow: 
+  0px 0px 5px rgb(0, 217, 255),
+  0px 0px 10px rgb(0, 217, 255),
+  0px 0px 15px rgb(0, 217, 255);
   border-radius: 20px;
   padding-left: 5px;
   padding-right: 5px;
   width: 160px;
   text-align: center;
+  animation: wow 5s linear infinite;
+  z-index: 4;
 }
+
 .nav-bar-button.chat{
   color: #DE419A;
+  z-index: 4;
 }
 .nav-bar-button.chat:hover{
   text-shadow: 0px 0px 5px #000000;
+}
+.nav-bar-button:active{
+  text-shadow: 0px 0px 10px #000000;
 }
 .nav-bar-button.exit{
   position: absolute;
   right: 10px;
   top: 70px;
+  z-index: 4;
 } 
 .nav-bar-username{
   position: absolute;
@@ -263,7 +344,10 @@ body{
   font-size: 30px;
   font-weight: bold;
   font-family: 'Dekko';
-  text-shadow: 0 0 2px rgb(255, 255, 255);
+  text-shadow: 
+  0 0 5px rgb(255, 255, 255),
+  0 0 8px rgb(0, 255, 42);
+  z-index: 4;
 }
 .nav-bar-user-money{
   position: absolute;
@@ -272,10 +356,29 @@ body{
   font-size: 20px;
   font-weight: bold;
   font-family: 'Dekko';
-  text-shadow: 0 0 2px rgb(255, 255, 255);
+  text-shadow: 
+  0 0 5px rgb(255, 255, 255),
+  0 0 8px rgb(0, 255, 42);
+  z-index: 4;
 }
 
 /* ////////////////////////////////////////--PET CREATE--//////////////////////////////////////////// */
+#create-page-background{
+  background-image: url("https://pbs.twimg.com/media/EPTKdi_X4AAks2Y.png");
+}
+#create-page-background {
+  width: 100%; 
+  height: 100%; 
+  position: fixed; 
+  left: 0px; 
+  top: 0px; 
+  z-index: -1;
+}
+.create-image {
+  width:100%;
+  height:100%;
+  background-attachment:fixed;
+}
 .new-pet-form{
   position: absolute;
   top: 150px;
@@ -283,13 +386,13 @@ body{
   grid-template-columns: repeat(1, 1fr);
   justify-content: space-evenly;
   gap: 10px;
-  background-color: #FFB647;
+  background-color: #10003f;
   padding: 20px;
   border-radius: 20px;
   left: 50%;
   top: 520px;
   transform: translate(-50%, -50%);
-  box-shadow: 10px 10px 15px #7ad8e2;
+  box-shadow: 0px 0px 15px #6b148d;
 }
 #pet-form-home{
   display: inline-grid;
@@ -300,16 +403,15 @@ body{
 }
 .pet-form-name{
   height: 50px;
-  border-radius: 12px;
+  border-radius: 5px;
   font-family: 'Dekko';
   font-size: 40px;
-  box-shadow: 10px 5px 5px #f5a42b;
+  box-shadow: 0px 0px 15px #0f0236;
   border-style: solid;
-  border-color: #d88e1e;
+  border-color: #150150;
 }
 .pet-form-name:hover{
-  border-radius: 13px;
-  box-shadow: 10px 5px 5px #d68a17;
+  box-shadow: 0px 0px 20px #c162e6;
 }
 #pixel-display{
   background-color: rgb(102, 102, 102);
@@ -319,7 +421,7 @@ body{
   gap: 0;
   border: solid;
   border-color: rgb(0, 0, 0);
-  box-shadow: 10px 5px 5px #f5a42b;
+  box-shadow: 0px 0px 15px #732fc2;
 }
 
 #pet-form-price[type=range]{
@@ -328,15 +430,15 @@ body{
 
 #pet-form-price[type=range]::-webkit-slider-runnable-track {
   height: 20px;
-  background-image: linear-gradient(to right, #62e6af 5%, #28E986 40%, #06cc37 80%);
+  background-image: linear-gradient(to right, #bb3eec 5%, #a531d3 40%, #c162e6 80%);
   border: solid;
-  border-color: #28E958;
-  box-shadow: 10px 5px 5px #f5a42b;
+  border-color: #d56cff;
+  box-shadow: 0px 0px 15px #0f0236;;
   border-radius: 5px;
   padding: 0;
 }
 #pet-form-price[type=range]::-webkit-slider-runnable-track:hover {
-  box-shadow: 10px 5px 5px #e09625;
+  box-shadow: 0px 0px 20px #4825b1;
   cursor: pointer;
  ;
 }
@@ -358,15 +460,15 @@ body{
 #sell-pet-button{
   height: 50px;
   border-radius: 12px;
-  background-image: linear-gradient(to right, #21d389 5%, #28E986 40%, #06cc37 80%);
+  background-image: linear-gradient(to right, #d593f0 5%, #aa4acf 40%, #925da7 80%);
   font-family: 'Dekko';
   font-size: 40px;
-  box-shadow: 10px 5px 5px #f5a42b;
+  box-shadow: 0px 0px 15px #0f0236;;
 }
 #sell-pet-button:hover{
   font-size: 41px;
-  background-image: linear-gradient(to right, #21d389 10%, #28E986 60%, #06cc37 90%);
-  box-shadow: 10px 7px 7px #f5a42b;
+  background-image: linear-gradient(to right, #c86dec 5%, #a438cf 40%, #944ab1 80%);
+  box-shadow: 0px 0px 20px #9c25e0;
   cursor: pointer;
 }
 .create-pixel{
@@ -378,7 +480,7 @@ body{
 .create-pixel:hover{
   width: 50px;
   height: 50px;
-  border-color: #8c00ff;
+  border-color: #c300ff;
   border-style: dotted;
   cursor: pointer;
 }
@@ -388,13 +490,13 @@ body{
   grid-template-columns: repeat(10, 10fr);
   justify-content: space-evenly;
   gap: 1px;
-  background: white;
+  background: rgb(255, 255, 255);
   padding: 10px;
 }
 .pet-shop-card-home{
   position: absolute;
   display: inline-grid;
-  grid-template-columns: repeat(5, 5fr);
+  grid-template-columns: repeat(3, 3fr);
   justify-content: space-evenly;
   gap: 15px;
   left: 50%;
@@ -406,24 +508,27 @@ body{
   width: 100%;
 }
 .pet-shop-card{
-  background-color: #FFB647;
+  background-color: #10003f;
   padding: 15px;
-  box-shadow: 10px 10px 10px #7ad8e2;
+  box-shadow: 0px 0px 2px rgb(255, 255, 255);
   border-radius: 5px;
   border-style: solid;
-  border-color: #FFB546;
+  border-color: #260058;
 }
 .pet-shop-card:hover{
-  box-shadow: 10px 10px 10px #69cad4;
-  background-color: #FFB646;
+  box-shadow: 0px 0px 10px rgb(0, 54, 155);
  }
  .loading-stuff-title{
+  font-size: 100px;
   position: absolute;
-  left: 43%;
   top: 280px;
   transform: rotateY(0deg);
   animation: loading 4s linear infinite;
-  /* transform: translate(-50%, -50%); */
+  color: white;
+  text-shadow: 0px 0px 2px black;
+  transform: translate(-50%, -50%);
+  width:100%;
+  text-align: center;
  }
  @keyframes loading {
 	0% {transform: rotateY(0deg);}
@@ -436,53 +541,65 @@ body{
 .pet-container{
   position: absolute;
   display: inline-grid;
-  grid-template-columns: repeat(5, 5fr);
+  grid-template-columns: repeat(4, 4fr);
   justify-content: space-evenly;
   gap: 15px;
   left: 50%;
-  top: 200px;
+  top: 90px;
   transform: translate(-50%);
   z-index: 3;
+  padding: 25px;
+  padding-top: 100px;
 }
 .pet-card{
-  background-color: #FFB647;
+  background-color: #10003f;
   padding: 15px;
-  box-shadow: 10px 10px 10px #7ad8e2;
+  box-shadow: 5px 5px 10px #28E958;
   border-radius: 5px;
   border-style: solid;
   border-color: #FFB546;
-  width: 100px;
+  width: 150px;
 }
 .pet-card:hover{
-  box-shadow: 10px 10px 10px #69cad4;
+  border-color: #f09d21;
   background-color: #FFB646;
 }
 .pet-name{
   font-family: 'Dekko';
+  color: white;
 }
 .pet-image-pixel-black{
   background-color: black;
-  width: 10px;
-  height: 10px;
+  width: 15px;
+  height: 15px;
 } 
 .pet-image-pixel-white{
   background-color: white;
-  width: 10px;
-  height: 10px;
+  width: 15px;
+  height: 15px;
 }
 .pets-heart{
   width: 20px;
   height: auto;
 }
 .pet-heart-home{
+  display: inline-grid;
+  grid-template-columns: repeat(5, 5fr);
+  justify-content: space-evenly;
+  gap: 10px;
   border-color: #00DCF5;
   border-width: 2px;
+  align-content: center;
 }
 .pet-image-1{
+  position: relative;
+  left: -5px;
+  background-color: #535353;
   display: inline-grid;
   grid-template-columns: repeat(10, 10fr);
   justify-content: space-evenly;
   gap: 1px;
+  width: 160px;
 }
 /* .pet-image-2{
   display: inline-grid;
@@ -508,6 +625,39 @@ body{
   justify-content: space-evenly;
   gap: 1px;
 } */
+
+.love-pet-button{
+  width: 100%;
+  height: 30px;
+  border-radius: 20px;
+  background-color: #42c3d1;
+  border: none;
+}
+.love-pet-button:hover{
+  background-color: #26d5e9;
+  border-radius: 25px;
+  text-shadow: 
+  0px 0px 3px rgb(205, 119, 255),
+  0px 0px 2px rgb(205, 119, 255),
+  0px 0px 8px rgb(205, 119, 255);
+}
+.price-shop-card{
+  font-size: 70px;
+  text-shadow: 
+  0 0 1px rgb(212, 0, 255),
+  0 0 10px rgb(212, 0, 255),
+  0 0 15px rgb(212, 0, 255);
+  padding: 0px;
+  margin: 0px;
+}
+.card-shop-name{
+  text-shadow: 
+  0 0 1px rgb(0, 103, 187),
+  0 0 15px rgb(0, 103, 187);
+  padding: 0px;
+  margin: 0px;
+  text-align: center;
+}
 /* ////////////////////////////////////////--MESSAGES--//////////////////////////////////////////// */
 .all-chats{
   position: absolute;
@@ -520,26 +670,28 @@ body{
   transform: translate(-50%, -50%);
 }
 .chat-room{
-  background-color: #FFB647;
+  background-color: #10003f;
   padding: 0px 20px;
   padding-bottom: 10px;
   width: 300px;
-  box-shadow: 10px 10px 10px rgb(133, 197, 197);
+  box-shadow: 0px 0px 6px rgb(0, 255, 221);
 }
 .chat-screen{
   overflow-y: scroll;
+  overflow-anchor: none;
   background: linear-gradient(180deg, rgb(209, 209, 209) 0%,  white 10%);
   display: inline-grid;
   grid-template-columns: repeat(1, 1fr);
   justify-content: space-evenly;
   width: 100%;
   height: 300px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
 }
 .message-card{
   border-bottom: solid #000000;
   font-family: 'Dekko';
+  padding-bottom: 10px;
 }
 .user-text-name{
   font-size: 20px;
@@ -555,8 +707,8 @@ body{
   position: relative;
   width: 100%;
   background-color: #ffffff;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
 }
 .form-text-input{
   height: 40px;
@@ -568,41 +720,60 @@ body{
 }
 .send-message-button{
   position: relative;
-  border-radius: 100px;
   padding: 0px;
   border-style: none;
-  width: 42px;
+  width: 43px;
   height: 42px;
   left: 2px;
-  background-image: radial-gradient( #2affa6 10%, #0ace69 50%, #018522 90%);
+  background-color: #05af2f;
+  box-shadow: 0px 0px 3px rgb(0, 255, 0);
 }
 .send-message-button:hover{
-  background-image: radial-gradient( #2affa6 20%, #0ace69 60%, #018522 80%);
+  background-color: #09d43c;
+  box-shadow: 0px 0px 8px rgb(48, 255, 48);
 }
 .chatroom-price{
+  text-shadow: 
+  0px 0px 3px rgb(236, 247, 227),
+  0px 0px 2px rgb(173, 245, 155),
+  0px 0px 8px rgb(49, 255, 49);
   padding: 0px;
   text-align: center;
 }
 .sell-buy-pet{
   width: 100%;
+  color:white;
+  text-shadow: #7228e9;
+  font-family: 'Dekko';
   border-radius: 8px;
-  background-image: linear-gradient(to left, #28CB86 5%, #28E986 40%, #28E958 80%);
+  background-image: linear-gradient(to left, #8135be 5%, #6125a5 40%, #7228e9 80%);
   background-size: 200% auto;
   transition: 0.9s;
-  height: 40px;
+  height: 35px;
   padding: 0px;
+  box-shadow: 0px 0px 8px rgb(0, 255, 0);
 }
-.sell-but-pet:hover{
+.sell-buy-pet:hover{
     background-position: left center;
-    font-family: 'Dekko';font-size: 30px;
+    font-family: 'Dekko';
+    box-shadow: 
+    0px 0px 3px rgb(205, 119, 255),
+    0px 0px 2px rgb(205, 119, 255),
+    0px 0px 8px rgb(205, 119, 255);
   }
 
 .no-messages-loading{
+  color: white;
+  text-shadow: 0px 0px 2px black;
   font-size: 100px;
   content: inline;
 }
 .monster-loading{
   position: absolute;
+  display: inline-grid;
+  grid-template-columns: repeat(3, 3fr);
+  justify-content: space-evenly;
+  gap: 15px;
   left: 50%;
   transform: translate(-50%, -50%);
   top: 350px;
@@ -613,7 +784,6 @@ body{
   top: 400px;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #f56e00;
   width: 600px;
   height: 400px;
   text-align: center;
@@ -621,6 +791,9 @@ body{
 }
 #no-chat-div{
   display: inline-grid;
-  grid-template-columns: repeat(2, 2fr);
-  background-color: rgb(255, 137, 137);
+  grid-template-columns: repeat(3, 3fr);
+  background-color: rgb(160, 0, 0);
+}
+.eye-ball{
+  width: 200px;
 }

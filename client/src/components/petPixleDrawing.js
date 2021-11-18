@@ -1,7 +1,7 @@
 import Pixel from "./pixel";
 import { useState } from "react";
 
-export default function PetPixleDrawinge(){
+export default function PetPixleDrawing(){
 
   const [ name, setName ] = useState('')
   const [ price, setPrice] = useState(50)

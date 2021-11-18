@@ -13,7 +13,10 @@ useEffect(()=>{
 },[])
 
   	return (
-			<div>
+			<div className="pet">
+				 <div id="create-page-background">
+          <img src="https://images.squarespace-cdn.com/content/v1/55a3fd98e4b08799f6f08154/1586558112308-XROG9JCYDIEJEY53NQQD/Matrix_Cascade.gif" className="create-image" alt="" />
+        </div>
 				{!!transactions[0]?(
 					<div className="all-chats">{
 						transactions.map(chatRoom =>{

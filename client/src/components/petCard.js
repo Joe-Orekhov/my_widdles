@@ -19,9 +19,9 @@ export default function PetCard({ petInfo, ranNum }){
 
 
   return (
-    <div className="pet-card">
-      <h1 className="pet-name" >{petInfo.name}</h1>
-      <div className={`pet-image-${ranNum}`}>
+    <div className='pet-shop-card'>
+      <h1>{petInfo.name}</h1>
+      <div className='pet-image'>
       {image_array.map((pix)=>{
         return (
           <PetImage pix={pix}/>
@@ -31,7 +31,7 @@ export default function PetCard({ petInfo, ranNum }){
       <div className="pet-heart-home">
         {heartArr}
       </div>
-      <button onClick={()=>sendLove()}>LOVE</button>
+      <button className="love-pet-button" onClick={()=>sendLove()}>LOVE</button>
     </div>
   )
 }

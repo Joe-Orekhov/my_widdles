@@ -30,8 +30,8 @@ console.log(pet.image.split(''))
 
   return (
     <div className='pet-shop-card'>
-      <h1>{pet.name}</h1>
-       <p>{`$ ${pet.price}`}</p>
+      <h1 className="card-shop-name" >{pet.name}</h1>
+       <p className="price-shop-card" >{`$ ${pet.price}`}</p>
         <div className='pet-image'>
           {
             pet.image.split('').map(pix =>{
@@ -40,7 +40,7 @@ console.log(pet.image.split(''))
               )})
           }
         </div> <br/>
-      <button onClick={()=> handleSubmit()}>Contact creator</button>
+      <button className="love-pet-button" onClick={()=> handleSubmit()}>Contact creator</button>
     </div>
   )
 }
