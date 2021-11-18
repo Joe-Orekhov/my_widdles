@@ -25,12 +25,15 @@ function SellingPet({ chatRoom, buyer}){
   return(
     <div>
       <form onSubmit={updatePrice}>
+        <div className="space"></div>
         <input 
+          className="selling-pet-input"
           type="range" 
           min="0" max="2000" 
           name="price" 
           onChange={(e)=>{setPrice(e.target.value);}}
           />
+          <div className="space"></div>
         <button className="sell-buy-pet" type="submit">{`Set price to $${price}`}</button>
       </form>
     </div>

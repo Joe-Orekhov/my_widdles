@@ -25,6 +25,60 @@ h2{
   0px 0px 5px #c0fffa,
   0px 0px 10px #00DCF5,
   0px 0px 15px #00DCF5;
+  animation: flickerGlow .001s linear infinite;
+}
+.my-widdles-logo:hover{
+  animation: none;
+  text-shadow: 
+  0px 0px 3px #d3fcff,
+  0px 0px 10px #c0fffa,
+  0px 0px 15px #00DCF5,
+  0px 0px 20px #00DCF5;
+}
+
+@keyframes flickerGlow {
+  0%{
+    text-shadow: 
+    0px 0px 8px #d3fcff,
+    0px 0px 5px #c0fffa,
+    0px 0px 10px #00DCF5,
+    0px 0px 10px #00DCF5;
+  }
+  20%{
+    text-shadow: 
+    0px 0px 1px #d3fcff,
+    0px 0px 6px #c0fffa,
+    0px 0px 3px #00DCF5,
+    0px 0px 2px #00DCF5;
+  }
+  40%{
+    text-shadow: 
+    0px 0px 6px #d3fcff,
+    0px 0px 3px #c0fffa,
+    0px 0px 5px #00DCF5,
+    0px 0px 4px #00DCF5;
+  }
+  60%{
+    text-shadow: 
+    0px 0px 8px #d3fcff,
+    0px 0px 10px #c0fffa,
+    0px 0px 2px #00DCF5,
+    0px 0px 5px #00DCF5;
+  }
+  80%{
+    text-shadow: 
+    0px 0px 1px #d3fcff,
+    0px 0px 2px #c0fffa,
+    0px 0px 6px #00DCF5,
+    0px 0px 4px #00DCF5;
+  }
+  100%{
+    text-shadow: 
+    0px 0px 3px #d3fcff,
+    0px 0px 5px #c0fffa,
+    0px 0px 8px #00DCF5,
+    0px 0px 6px #00DCF5;
+  }
 }
 #my-widdles-phrase{
   color:#ffffff;
@@ -122,13 +176,18 @@ h2{
 }
 
 .login-div:hover{
-  background-color: #0f002b ;
+  background-color: #180142 ;
 }
 #login-title{
   font-family: 'Dekko';font-size: 30px;
   font-weight: bolder;
   margin: auto;
   color: white;
+  text-shadow: 
+  0px 0px 1px #d3fcff,
+  0px 0px 2px #c0fffa,
+  0px 0px 6px #00DCF5,
+  0px 0px 6px #00DCF5;
 }
 
 .login-form{
@@ -140,7 +199,7 @@ h2{
   height: 33px;
   border-radius: 10px;
   background-image: linear-gradient(to right, #d6d6d6 5%, #ffffff 60%, #ffffff 80%);
-  transition: 0.9s;
+  transition: 0.2s;
   background-size: 200% auto;
   font-family: 'Dekko';font-size: 20px;
 }
@@ -151,18 +210,25 @@ h2{
 }
 
 .login-form-input-button{
+  color: white;
   height: 33px;
   border-radius: 10px;
-  background-image: linear-gradient(to right, #2196F3 5%, #21c2f3 60%, #00DCF5 80%);
-  transition: 0.9s;
+  border: none;
+  background-image: linear-gradient(to right, #09008d 5%, #070069 60%, #05004b 80%);
+  transition: 0.2s;
   background-size: 200% auto;
   font-family: 'Dekko';font-size: 20px;
 }
 .login-form-input-button:hover{
+  text-shadow: 
+  0px 0px 1px #d3fcff,
+  0px 0px 2px #c0fffa,
+  0px 0px 6px #00DCF5,
+  0px 0px 6px #00DCF5;
+  box-shadow: 0px 0px 5px rgb(117, 188, 255);
   border-radius: 12px;
   background-position: right center;
   font-family: 'Dekko';font-size: 22px;
-  
 }
 .login-signup{
   display: inline-grid;
@@ -170,13 +236,21 @@ h2{
   gap: 2px;
 }
 #sign-page-btn{
+  border: none;
+  color: white;
   border-radius: 8px;
-  background-image: linear-gradient(to right, #28CB86 5%, #28E986 40%, #28E958 80%);
+  background-image: linear-gradient(to right, #006b05 5%, #014205 40%, #005e05 80%);
   transition: 0.9s;
   background-size: 200% auto;
   font-family: 'Dekko';font-size: 20px;
 }
 #sign-page-btn:hover{
+  box-shadow: 0px 0px 8px #75ff59;
+  text-shadow: 
+  0px 0px 1px #b9ff9e,
+  0px 0px 2px #c0ffc5,
+  0px 0px 6px #75ff59,
+  0px 0px 6px #41ff51;
   background-position: right center;
   font-family: 'Dekko';font-size: 22px;
 }
@@ -193,31 +267,45 @@ p{
 /* ////////////////////////////////////////--sign up--//////////////////////////////////////// */
 
 #log-page-btn{
-  border-radius: 8px;
-  background-image: linear-gradient(to right, #2196F3 5%, #21c2f3 60%, #00DCF5 80%);
-  transition: 0.9s;
+  color: white;
+  height: 33px;
+  border-radius: 10px;
+  border: none;
+  background-image: linear-gradient(to right, #09008d 5%, #070069 60%, #05004b 80%);
+  transition: 0.2s;
   background-size: 200% auto;
   font-family: 'Dekko';font-size: 20px;
 }
 #log-page-btn:hover{
+  text-shadow: 
+  0px 0px 1px #d3fcff,
+  0px 0px 2px #c0fffa,
+  0px 0px 6px #00DCF5,
+  0px 0px 6px #00DCF5;
+  box-shadow: 0px 0px 5px rgb(117, 188, 255);
+  border-radius: 12px;
   background-position: right center;
-  font-family: 'Dekko';font-size: 21px;
-  text-shadow: 0 1px 3 #2196F3;
+  font-family: 'Dekko';font-size: 22px;
 }
 
 .sign-form-input-button{
-  height: 33px;
-  border-radius: 10px;
-  background-image: linear-gradient(to right, #28CB86 5%, #28E986 40%, #28E958 80%);
+  border: none;
+  color: white;
+  border-radius: 8px;
+  background-image: linear-gradient(to right, #006b05 5%, #014205 40%, #005e05 80%);
   transition: 0.9s;
   background-size: 200% auto;
   font-family: 'Dekko';font-size: 20px;
 }
 .sign-form-input-button:hover{
-  border-radius: 12px;
+  box-shadow: 0px 0px 8px #75ff59;
+  text-shadow: 
+  0px 0px 1px #b9ff9e,
+  0px 0px 2px #c0ffc5,
+  0px 0px 6px #75ff59,
+  0px 0px 6px #41ff51;
   background-position: right center;
-  font-family: 'Dekko';font-size: 22px;
-  text-shadow: 0 2px 0 #28CB86;
+  font-family: 'Dekko';
 }
 /* ////////////////////////////////////////--NAV BAR--//////////////////////////////////////////// */
 .nav-bar{
@@ -264,14 +352,15 @@ p{
   background-color: transparent;
   font-family: 'Dekko';
   color: rgb(255, 255, 255);
-  text-shadow: 0 0 2px rgb(0, 0, 0);
+
   font-size: 40px;
   border: none; 
   top: 62px;
-  background-color: rgb(51, 0, 51);
-  box-shadow: 0px 0px 8px rgb(148, 0, 148);
   border-radius: 12px;
   z-index: 4;
+  text-shadow: 
+  0 0 5px lightblue,
+  0 0 10px blue;
 }
 
 @keyframes rotateHeart {
@@ -320,6 +409,7 @@ p{
   animation: wow 5s linear infinite;
   z-index: 4;
 }
+
 
 .nav-bar-button.chat{
   color: #DE419A;
@@ -554,15 +644,15 @@ p{
 .pet-card{
   background-color: #10003f;
   padding: 15px;
-  box-shadow: 5px 5px 10px #28E958;
+  box-shadow: 5px 5px 10px #008192;
   border-radius: 5px;
   border-style: solid;
-  border-color: #FFB546;
+  border-color: #5d0069;
   width: 150px;
 }
 .pet-card:hover{
-  border-color: #f09d21;
-  background-color: #FFB646;
+  border-color: #720181;
+  background-color: #1b0169;
 }
 .pet-name{
   font-family: 'Dekko';
@@ -627,19 +717,26 @@ p{
 } */
 
 .love-pet-button{
+  color: white;
+  font-weight: bold;
+  text-shadow: 
+  0 0 1px #74003a,
+  0 0 10px #8b0146,
+  0 0 15px #c20664;
   width: 100%;
   height: 30px;
   border-radius: 20px;
-  background-color: #42c3d1;
+  background-color: #9b004d;
   border: none;
 }
 .love-pet-button:hover{
-  background-color: #26d5e9;
+  background-color:  #a80356;
   border-radius: 25px;
+  color: black;
   text-shadow: 
-  0px 0px 3px rgb(205, 119, 255),
-  0px 0px 2px rgb(205, 119, 255),
-  0px 0px 8px rgb(205, 119, 255);
+  0 0 1px #a80356,
+  0 0 10px #a80356,
+  0 0 15px #a80356;
 }
 .price-shop-card{
   font-size: 70px;
@@ -678,8 +775,9 @@ p{
 }
 .chat-screen{
   overflow-y: scroll;
+  transform:rotateY(180deg);
   overflow-anchor: none;
-  background: linear-gradient(180deg, rgb(209, 209, 209) 0%,  white 10%);
+  background: linear-gradient(180deg, rgb(0, 0, 0) 0%,  rgb(41, 41, 41) 10%);
   display: inline-grid;
   grid-template-columns: repeat(1, 1fr);
   justify-content: space-evenly;
@@ -689,17 +787,25 @@ p{
   border-top-right-radius: 2px;
 }
 .message-card{
+  /* transform:rotateY(180deg);
+  transform:rotateX(180deg); */
   border-bottom: solid #000000;
   font-family: 'Dekko';
   padding-bottom: 10px;
 }
 .user-text-name{
+  transform:rotateY(180deg);
+  /* transform:rotateX(180deg); */
   font-size: 20px;
   padding: 0px;
   height: 10px;
   margin: 0px, 0px;
 }
+/* .other-message.p.user-text-name{
+  color: black;
+} */
 .user-text-message{
+  transform:rotateY(180deg);
   font-size: 20px;
   padding: 0px;
 }
@@ -743,25 +849,64 @@ p{
 .sell-buy-pet{
   width: 100%;
   color:white;
+  font-size: 25px;
   text-shadow: #7228e9;
   font-family: 'Dekko';
   border-radius: 8px;
-  background-image: linear-gradient(to left, #8135be 5%, #6125a5 40%, #7228e9 80%);
+  background-color: #7228e9;
   background-size: 200% auto;
-  transition: 0.9s;
   height: 35px;
   padding: 0px;
-  box-shadow: 0px 0px 8px rgb(0, 255, 0);
+  box-shadow: 0px 0px 8px rgb(234, 0, 255);
 }
 .sell-buy-pet:hover{
     background-position: left center;
     font-family: 'Dekko';
-    box-shadow: 
-    0px 0px 3px rgb(205, 119, 255),
-    0px 0px 2px rgb(205, 119, 255),
-    0px 0px 8px rgb(205, 119, 255);
-  }
-
+    text-shadow: 
+    0px 0px 10px #000000,
+    0px 0px 5px #000000;
+}
+.selling-pet-input{
+  width: 100%;
+    -webkit-appearance: none;
+}
+.selling-pet-input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: none;
+  height: 23px;
+  border-radius: 20px;
+  width: 23px;
+  position: relative;
+  background-image: linear-gradient(to right, #ad68c9 5%, #bb3eec 40%, #a531d3 80%);
+  top: -8px;
+  box-shadow: 
+  0px 0px 5px#530281,
+  0px 0px 10px#530281;
+}
+.selling-pet-input[type=range]::-webkit-slider-thumb:hover {
+  -webkit-appearance: none;
+  box-shadow: 
+  0px 0px 5px#000000,
+  0px 0px 10px#380158;
+}
+.selling-pet-input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 15px;
+  background-image: linear-gradient(to right, #a244c7 5%, #a21fd6 40%, #7b00ac 80%);
+  border: solid;
+  border-radius: 10px;
+  border-color: #b141dd;
+  box-shadow: 0px 0px 5px #000000;;
+  border-radius: 10px;
+  margin: -3px;
+}
+.selling-pet-input[type=range]::-webkit-slider-runnable-track:hover {
+  border-color: #c036f7;
+  background-image: linear-gradient(to right, #9c38c4 5%, #990bd1 40%, #66008f 80%);
+}
+.space{
+  height: 10px;
+}
 .no-messages-loading{
   color: white;
   text-shadow: 0px 0px 2px black;
